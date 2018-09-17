@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+        {% block stylesheets %}
+            <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% endblock %}
+
+{% block body_home %}
+<br />
+<center>
+<p class="h2">{{ article.nom }}</p>
+</center><br />
+<img src="{{ article.image }}" width="400" height="200" class="rounded mx-auto d-block" alt="...">
+<p class="lead">
+{{ article.content }}
+</p>
+<div class="embed-responsive embed-responsive-16by9">
+    <embed class="embed-responsive-item" width="640" height="480" src="{{ episode.video }}" frameborder="0" allowfullscreen></embed>
+</div>
+{% endblock %}

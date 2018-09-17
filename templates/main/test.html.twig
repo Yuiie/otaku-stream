@@ -1,0 +1,20 @@
+{% if articles is not empty %}
+    {% for article in articles %}
+        <article>
+	     <header>
+	         <h1 class="article-titre">{{ article.titre }}</h1>
+
+		 <div class="article-meta">
+		     Publié le {{ article.datePublication|date('d/m/Y') }}.			
+		 </div>
+             </header>
+
+	     {{ article.contenu }}
+	</article>
+        <hr class="article-separation"/>
+    {% endfor %}
+{% else %}
+    <p>Il n'y a aucun article pour l'instant.</p>
+{% endif %}
+
+{% include 'pagination.html.twig' %}

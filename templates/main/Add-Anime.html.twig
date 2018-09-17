@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+        {% block stylesheets %}
+            <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% endblock %}
+
+{% block body_home %}
+  <div class="container">
+        {{ form_start(form) }}
+
+        <div class="form-group">
+            {{ form_label(form.nom) }}
+            {{ form_widget(form.nom, {'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.nom) }}
+        </div>
+        <div class="form-group">
+            {{ form_label(form.content) }}
+            {{ form_widget(form.content, {'attr':{'class':'form-control'}}) }}
+            {{ form_errors(form.content) }}
+        </div>
+        <div class="form-group">
+        {{ form_row(form.brochure) }}
+        </div>
+        <input class="btn btn-primary" type="submit" value="Submit">
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
