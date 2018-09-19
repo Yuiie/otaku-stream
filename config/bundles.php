@@ -17,4 +17,5 @@ return [
     Tiloweb\PaginationBundle\TilowebPaginationBundle::class => ['all' => true],
     FOS\UserBundle\FOSUserBundle::class => ['all' => true],
     Knp\Bundle\MenuBundle\KnpMenuBundle::class => ['all' => true],
+    Eu\CookieLawBundle\EuCookieLawBundle::class => ['all' => true],
 ];

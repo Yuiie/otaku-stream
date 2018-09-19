@@ -8,6 +8,7 @@ use App\Entity\Groupe;
 use App\Form\AddAnimeType;
 use App\Form\AddEpisodeType;
 use App\Utils\AnimeManager;
+use App\Form\CreateGroupeType;
 
 use Doctrine\Common\Persistence\ObjectManager;
 use Symfony\Component\HttpFoundation\RedirectResponse;
@@ -133,23 +134,6 @@ class MainController extends AbstractController
             $em->flush();
         }
         return $this->render('main/Add-Episode.html.twig', ['form' => $form->createView()]);
-    }
-
-     /**
-     * @Route("/groupe", name="groupe")
-     */
-    public function groupe(Request $request)
-    {
-        $em = $this->getDoctrine()->getManager();
-        $Groupe = new Groupe();
-
-        $user = $this->getDoctrine()->getManager()->getRepository('App:User')->findOneById(1);
-      $Groupe->setMember($user);
-      $Groupe->setNom("morgan");
-      $Groupe->setRank(4);
-      $em->persist($Groupe);
-            $em->flush();
-        return $this->render('main/groupe.html.twig');
     }
 
     public function recherche($nom)
