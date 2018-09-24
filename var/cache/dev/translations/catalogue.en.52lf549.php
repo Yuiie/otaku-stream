@@ -195,6 +195,11 @@ the Team.
     'cookie.message' => 'This site uses cookies to deliver services in accordance with the Policy cookies. You can specify the conditions for storage or access cookies on your browser.',
     'cookie.message.accept' => 'Accept cookie policy',
   ),
+  'KnpPaginatorBundle' => 
+  array (
+    'label_previous' => 'Previous',
+    'label_next' => 'Next',
+  ),
 ));
 
 

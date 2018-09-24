@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+        {% block stylesheets %}
+            <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<link type="text/css" href="style.css" rel="stylesheet">
+        {% endblock %}
+
+{% block body_home %}
+
+<p class="titre">TCHAT</p>
+
+<div id="contenu">
+	<div class="afficher">
+
+	</div>
+</div>
+	<form method="POST" action="" id="post">
+		<textarea placeholder="Saisissez votre texte" id="message" name="test2"></textarea>
+		<button>Envoyer le message</button>
+	</form>
+
+{% endblock %}
+{% block javascripts %}
+<script>
+jQuery(function($){
+	$('#post').submit(function(){
+		var message = $('#message').val()
+		var fini = message.trim();
+		if(fini !== ""){
+			$('.afficher').append("<p>"+message+"</p>")
+			$('#message').val('')
+		}else{
+			alert('erreur')
+		}
+		return false;
+	})
+})
+</script>
+{% endblock %}

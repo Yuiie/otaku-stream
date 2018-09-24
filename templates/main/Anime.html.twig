@@ -16,7 +16,15 @@
 <p class="lead">
 {{ article.content }}
 </p>
-<div class="embed-responsive embed-responsive-16by9">
-    <embed class="embed-responsive-item" width="640" height="480" src="{{ episode.video }}" frameborder="0" allowfullscreen></embed>
-</div>
+
+{% for episodes in episode %}
+    <div class="col">
+        <div class="card" style="background-color:#ccccff; margin-top: 10px;">
+           <div class="embed-responsive embed-responsive-16by9">
+                <embed class="embed-responsive-item" width="640" height="480" src="{{ episodes.video }}" frameborder="0" allowfullscreen></embed>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
 {% endblock %}

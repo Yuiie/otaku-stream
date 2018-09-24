@@ -42,6 +42,30 @@ class EpisodeRepository extends ServiceEntityRepository
 
         return $paginator;
     }
+
+    public function findOneByEp($id, $ep): ?Episode
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.anime = :id')
+            ->andWhere('e.episode = :ep')
+            ->setParameter('id', $id)
+            ->setParameter('ep', $ep)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+    public function findEp($id, $ep): ?Episode
+    {
+        return $this->createQueryBuilder('e')
+            ->andWhere('e.anime = :id')
+            ->andWhere('e.episode = :ep')
+            ->setParameter('id', $id)
+            ->setParameter('ep', $ep)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
 //    /**
 //     * @return Episode[] Returns an array of Episode objects
 //     */

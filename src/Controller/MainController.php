@@ -5,8 +5,10 @@ namespace App\Controller;
 use App\Entity\Anime;
 use App\Entity\Episode;
 use App\Entity\Groupe;
+use App\Entity\Video;
 use App\Form\AddAnimeType;
 use App\Form\AddEpisodeType;
+use App\Form\VideoType;
 use App\Utils\AnimeManager;
 use App\Form\CreateGroupeType;
 
@@ -35,6 +37,35 @@ class MainController extends AbstractController
         date_default_timezone_set( 'Europe/Paris' );
         AnimeManager::setObjectManager($objectManager);
     }
+
+
+
+    /**
+     * @Route("/tchat", name="tchat")
+     */
+    public function tchat(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $tchat = new Tchat();
+
+        $form = $this->createForm(TchatType::class, $tchat);
+
+        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+            $nom = $Episode->getNom();
+            //trouver dans la table anime l'anime qui correspond a lepisode anime_id
+            $article = $this->getDoctrine()
+        ->getManager()
+        ->getRepository('App:Anime')
+        ->findOneByNom($nom)
+      ;
+      $Episode->setAnime($article);
+      $em->persist($Episode);
+            $em->flush();
+        }
+        return $this->render('main/Add-Episode.html.twig', ['form' => $form->createView()]);
+    }
+
+
     /**
      * @Route("/", name="main")
      */
@@ -60,9 +91,9 @@ class MainController extends AbstractController
     }
 
     /**
-     * @Route("/Anime", name="anime")
+     *  @Route("/Anime", name="anime")
      */
-    public function Anime($id)
+    public function Anime($id, $ep)
     {
 
         // afficher l'anime en fonction de son id
@@ -74,7 +105,7 @@ class MainController extends AbstractController
       $episode = $this->getDoctrine()
         ->getManager()
         ->getRepository('App:Episode')
-        ->findOneById(27)
+        ->findEp($id, $ep)
       ;
       
        // $article = $this->getDoctrine()->getRepository(Anime::class)->findOneByIds($id);
@@ -143,6 +174,32 @@ class MainController extends AbstractController
         $episode = $db->getRepository('App:Anime')->recherche($nom);
         return $this->render('main/recherche.html.twig', ['listarticle' => $episode
         ]);
+    }
+
+    /**
+     * @Route("/add/video", name="add video")
+     */
+    public function AddVideo(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $video = new Video();
+        $form = $this->createForm(VideoType::class, $video);
+
+        // verifie que l'utillisateur est bien connecter et recupere les data
+            // verifie que le formulaire est valide
+            if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+            {
+               // $episode = $form["episode"]->getData();
+               // $url = $form["url"]->getData();
+                
+                $em->persist($video);
+                $em->flush();
+
+                //ajouter un flashbag, oublie pas aussi dans la vue twig
+                $this->get('session')->getFlashBag()->add('notice', 'Video enregistré');
+ 
+        }
+        return $this->render('anime/add-video.html.twig', ['form' => $form->createView()]);
     }
 }
 

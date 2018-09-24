@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -40,6 +42,11 @@ class Episode
      * @ORM\Column(type="string", length=255)
      */
     private $video;
+
+    public function __construct()
+    {
+        $this->videos = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -102,6 +109,61 @@ class Episode
     public function setVideo(string $video): self
     {
         $this->video = $video;
+
+        return $this;
+    }
+
+    public function getUrl(): ?Video
+    {
+        return $this->url;
+    }
+
+    public function setUrl(?Video $url): self
+    {
+        $this->url = $url;
+
+        return $this;
+    }
+
+    public function getEpisodeId(): ?Video
+    {
+        return $this->episode_id;
+    }
+
+    public function setEpisodeId(?Video $episode_id): self
+    {
+        $this->episode_id = $episode_id;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Video[]
+     */
+    public function getVideos(): Collection
+    {
+        return $this->videos;
+    }
+
+    public function addVideo(Video $video): self
+    {
+        if (!$this->videos->contains($video)) {
+            $this->videos[] = $video;
+            $video->setEpisode($this);
+        }
+
+        return $this;
+    }
+
+    public function removeVideo(Video $video): self
+    {
+        if ($this->videos->contains($video)) {
+            $this->videos->removeElement($video);
+            // set the owning side to null (unless already changed)
+            if ($video->getEpisode() === $this) {
+                $video->setEpisode(null);
+            }
+        }
 
         return $this;
     }

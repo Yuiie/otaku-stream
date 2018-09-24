@@ -27,10 +27,10 @@
             <img src="{{ article.anime.image }}" style="max-width: 200px" class="img-fluid rounded mx-auto" alt="...">  
             <div class="card-body" style="text-align:center;">
                 <h4 class="card-title">
-                    <a class="nav-item" href="{{ path('Anime') }}/{{ article.anime.id }}">{{ article.nom }} {{ article.episode }}</a>
-                </h4>
+                    <a class="nav-item" href="{{ path('Anime', { 'id': article.anime.id , 'ep': article.episode }) }}">{{ article.nom }} {{ article.episode }}</a>
+               </h4>
                 <p class="card-text"><a style="padding: 10px;">{{ article.date|date("m/d/Y") }}</a></p>
-                <a href="{{ path('Anime') }}/{{ article.anime.id }}" class="btn btn-primary">See Profile</a>
+                <a href="{{ path('Anime', { 'id': article.anime.id , 'ep': article.episode }) }}" class="btn btn-primary">See Profile</a>
             </div>
         </div>
     </div>

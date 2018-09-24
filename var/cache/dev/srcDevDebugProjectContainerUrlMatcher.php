@@ -86,9 +86,11 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                     '/group' => array(array('_route' => 'group', '_controller' => 'App\\Controller\\GroupeController::Group'), null, null, null),
                     '/group/create' => array(array('_route' => 'group create', '_controller' => 'App\\Controller\\GroupeController::CreateGroup'), null, null, null),
                     '/group/apply' => array(array('_route' => 'group apply', '_controller' => 'App\\Controller\\GroupeController::GroupMember'), null, null, null),
+                    '/tchat' => array(array('_route' => 'tchat', '_controller' => 'App\\Controller\\MainController::tchat'), null, null, null),
                     '/Anime' => array(array('_route' => 'anime', '_controller' => 'App\\Controller\\MainController::Anime'), null, null, null),
                     '/add/anime' => array(array('_route' => 'add-anime', '_controller' => 'App\\Controller\\MainController::AddAnime'), null, null, null),
                     '/add/episode' => array(array('_route' => 'add-episode', '_controller' => 'App\\Controller\\MainController::AddEpisode'), null, null, null),
+                    '/add/video' => array(array('_route' => 'add video', '_controller' => 'App\\Controller\\MainController::AddVideo'), null, null, null),
                     '/login' => array(array('_route' => 'fos_user_security_login', '_controller' => 'fos_user.security.controller:loginAction'), null, array('GET' => 0, 'POST' => 1), null),
                     '/login_check' => array(array('_route' => 'fos_user_security_check', '_controller' => 'fos_user.security.controller:checkAction'), null, array('POST' => 0), null),
                     '/logout' => array(array('_route' => 'fos_user_security_logout', '_controller' => 'fos_user.security.controller:logoutAction'), null, array('GET' => 0, 'POST' => 1), null),
@@ -152,8 +154,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         .')'
                     .')'
                     .'|/A(?'
-                        .'|nime(?:/(\\d+))?(*:257)'
-                        .'|rticle/([^/]++)(*:280)'
+                        .'|nime/(\\d+)/([^/]++)(*:261)'
+                        .'|rticle/([^/]++)(*:284)'
                     .')'
                 .')$}sD',
         );
@@ -172,8 +174,8 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                             204 => array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null),
                             217 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
                             227 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
-                            257 => array(array('_route' => 'Anime', '_controller' => 'App\\Controller\\MainController::Anime', 'id' => 1), array('id'), null, null),
-                            280 => array(array('_route' => 'Article', '_controller' => 'App\\Controller\\MainController::Article'), array('page'), null, null),
+                            261 => array(array('_route' => 'Anime', '_controller' => 'App\\Controller\\MainController::Anime', 'id' => 1), array('id', 'ep'), null, null),
+                            284 => array(array('_route' => 'Article', '_controller' => 'App\\Controller\\MainController::Article'), array('page'), null, null),
                         );
 
                         list($ret, $vars, $requiredMethods, $requiredSchemes) = $routes[$m];
@@ -199,7 +201,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return $ret;
                 }
 
-                if (280 === $m) {
+                if (284 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));

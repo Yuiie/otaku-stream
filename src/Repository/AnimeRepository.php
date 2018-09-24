@@ -41,6 +41,17 @@ class AnimeRepository extends ServiceEntityRepository
     }
     */
 
+    public function findOneNl($value): ?Anime
+    {
+        return $this->createQueryBuilder('a')
+            ->andWhere('a.nom = :nom')
+            ->setParameter('nom', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+        ;
+    }
+
+
     public function findOneByIds($value): ?Anime
     {
         return $this->createQueryBuilder('a')
