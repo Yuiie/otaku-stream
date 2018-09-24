@@ -15,7 +15,7 @@
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 {% endblock %}
-<body class="o-page o-page--center">
+{% block body_home %}
 
 <div class="o-page__card" >
             <div class="c-card u-mb-xsmall">
@@ -73,5 +73,5 @@
                 <a class="u-text-mute u-text-small" href="forgot-password.html">Forgot Password?</a>
             </div>
         </div>
-</body>
+        {% endblock %}
 </html>
