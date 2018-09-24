@@ -19,6 +19,15 @@ class VideoRepository extends ServiceEntityRepository
         parent::__construct($registry, Video::class);
     }
 
+    public function findByEp($id, $ep)
+    {
+        $qb = $this->createQueryBuilder('a');
+         
+        $qb->where('a.anime = :nom')->setParameter('nom', $id);
+        $qb->andwhere('a.episode = :ep')->setParameter('ep', $ep);
+
+        return $qb->getQuery()->getResult();
+    }
 //    /**
 //     * @return Video[] Returns an array of Video objects
 //     */

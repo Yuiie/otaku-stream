@@ -85,7 +85,7 @@ class MainController extends AbstractController
             $request->query->getInt('page', 1),
             6
         );
-        return $this->render('main/index.html.twig', [
+        return $this->render('main/home.html.twig', [
             'controller_name' => 'MainController', 'listarticle' => $episode
         ]);
     }
@@ -104,8 +104,8 @@ class MainController extends AbstractController
       ;
       $episode = $this->getDoctrine()
         ->getManager()
-        ->getRepository('App:Episode')
-        ->findEp($id, $ep)
+        ->getRepository('App:Video')
+        ->findByEp($id, $ep)
       ;
       
        // $article = $this->getDoctrine()->getRepository(Anime::class)->findOneByIds($id);

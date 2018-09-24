@@ -1,0 +1,46 @@
+{% extends 'native.html.twig' %}
+
+{% block stylesheets %}
+            <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
+            <link rel="stylesheet" href="css/main.min.css">
+{% endblock %}
+
+{% block body_home %}
+
+     <div class="row u-m-small">
+     {% for article in listarticle %}
+                            <div class="col-sm-6 col-md-4">
+
+                                <div class="c-project-card u-mb-medium">
+                                    <img src="{{ article.anime.image }}" alt="About the image">
+
+                                    <div class="c-project-card__content">
+                                        <div class="c-project-card__head">
+                                            <h4 class="c-project-card__title"><a class="nav-item" href="{{ path('Anime', { 'id': article.anime.id , 'ep': article.episode }) }}">{{ article.nom }} {{ article.episode }}</a></h4>
+                                            <p class="c-project-card__info">Gourmet | Last Update: 29 Dec 2017</p>
+                                        </div>
+                                        
+
+                                        <div class="c-project-card__meta">
+                                            <p>9,680 USD<small class="u-block u-text-mute">Budget / Salary</small></p>
+                                            <p>9,680 USD<small class="u-block u-text-mute">Budget / Salary</small></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+ {% endfor %}
+ <tfoot>
+        <tr>
+                {{ pagination(listarticle, 'page') }}
+        </tr>
+    </tfoot>
+        </div><!-- // .row -->
+          <br />
+    
+
+{% endblock %}
