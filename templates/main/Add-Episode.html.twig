@@ -1,14 +1,26 @@
-{% extends 'base.html.twig' %}
+{% extends 'native.html.twig' %}
+{% set message = message %}
 
          {% block stylesheets %}
             <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
             <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
             <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                 <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
+
+        <!-- Favicon -->
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+
+        <!-- Stylesheet -->
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
+        
         {% endblock %}
 
 {% block body_home %}
-  <div class="container">
+  <div class="row u-m-small">
         {{ form_start(form) }}
 
         <div class="form-group">
@@ -29,4 +41,5 @@
         <input type="submit" value="Send" />
         {{ form_end(form) }}
     </div>
+    <script src="js/main.min.js"></script>
 {% endblock %}

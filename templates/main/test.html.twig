@@ -1,20 +1,15 @@
-{% if articles is not empty %}
-    {% for article in articles %}
-        <article>
-	     <header>
-	         <h1 class="article-titre">{{ article.titre }}</h1>
+{% extends 'native.html.twig' %}
 
-		 <div class="article-meta">
-		     Publié le {{ article.datePublication|date('d/m/Y') }}.			
-		 </div>
-             </header>
+{% block stylesheets %}
+            <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+            <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
+            <link rel="stylesheet" href="css/main.min.css">
+{% endblock %}
 
-	     {{ article.contenu }}
-	</article>
-        <hr class="article-separation"/>
-    {% endfor %}
-{% else %}
-    <p>Il n'y a aucun article pour l'instant.</p>
-{% endif %}
+{% block body_home %}
 
-{% include 'pagination.html.twig' %}
+
+{% endblock %}

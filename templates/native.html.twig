@@ -15,21 +15,28 @@
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
         <!-- Stylesheet -->
-        <link rel="stylesheet" href="css/main.min.css">
+        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+        <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
+        <script src="{{ asset('../js/main.min.js') }}"></script>
+        <script src="{{ asset('js/main.js') }}"></script>
+
     </head>
     <body class="o-page">
         <div class="o-page__sidebar js-page-sidebar">
             <div class="c-sidebar">
-                <a class="c-sidebar__brand" href="#">
-                    <img class="c-sidebar__brand-img" src="img/logo.png" alt="Logo"> Otaku-Stream
+                <a class="c-sidebar__brand" href="{{ path('index') }}">
+                    <img class="c-sidebar__brand-img" src="{{ asset('assets/img/logo.png') }}" alt="Logo"> Otaku-Stream
                 </a>
-                
+                 <center>
+                        <form class="form-inline my-2 my-lg-0" methode="GET">
+                            <input  type="search" name="recherche" placeholder="Search" aria-label="Search">
+                            <button type="submit"><i class="fa fa-search"></i></button>
+                        </form></center>
                 <h4 class="c-sidebar__title">Dashboards</h4>
                 <ul class="c-sidebar__list">
-
                     <li class="c-sidebar__item">
-                        <a class="c-sidebar__link" href="home-overview.html">
-                            <i class="fa fa-home u-mr-xsmall"></i>Overview
+                        <a class="c-sidebar__link" href="{{ path('index') }}">
+                            <i class="fa fa-home u-mr-xsmall"></i>Acceuil
                         </a>
                     </li>
 
@@ -183,7 +190,7 @@
                 <h4 class="c-sidebar__title">Account</h4>
                 <ul class="c-sidebar__list">
                     <li class="c-sidebar__item">
-                        <a class="c-sidebar__link" target="_blank" href="account-details.html">
+                        <a class="c-sidebar__link" target="_blank" href="{{ path('login') }}">
                             <i class="fa fa-user-circle u-mr-xsmall"></i>Account Details
                         </a>
                     </li>
@@ -195,7 +202,7 @@
                     </li>
 
                     <li class="c-sidebar__item">
-                        <a class="c-sidebar__link" target="_blank" href="register.html">
+                        <a class="c-sidebar__link" target="_blank" href="{{ path('login') }}">
                             <i class="fa fa-user-plus u-mr-xsmall"></i>Register
                         </a>
                     </li>
@@ -213,7 +220,7 @@
                     </li>
 
                     <li class="c-sidebar__item">
-                        <a class="c-sidebar__link" href="login.html">
+                        <a class="c-sidebar__link" href="{{ path('login') }}">
                             <i class="fa fa-sign-in u-mr-xsmall"></i>Login
                         </a>
                     </li>
@@ -244,7 +251,7 @@
         </div><!-- // .o-page__sidebar -->
         
         <div class="o-page__content">
-            <header class="c-navbar" style="border-bottom: 1px solid blue;">
+            <header class="c-navbar" style="border-bottom: 1px solid #b1e1e7;">
 
                 <button class="c-sidebar-toggle js-sidebar-toggle">
                     <span class="c-sidebar-toggle__bar"></span>
@@ -311,13 +318,13 @@
 
                 <div class="c-dropdown dropdown">
                     <a  class="c-avatar c-avatar--xsmall has-dropdown dropdown-toggle" href="#" id="dropdwonMenuAvatar" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="c-avatar__img" src="img/avatar-72.jpg" alt="User's Profile Picture">
+                        <img class="c-avatar__img" src="{{ asset('assets/img/avatar-72.jpg') }}" alt="User's Profile Picture">
                     </a>
 
                     <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdwonMenuAvatar">
-                        <a class="c-dropdown__item dropdown-item" href="#">Edit Profile</a>
+                        <a class="c-dropdown__item dropdown-item" href="{{ path('login') }}">Edit Profile</a>
                         <a class="c-dropdown__item dropdown-item" href="#">View Activity</a>
-                        <a class="c-dropdown__item dropdown-item" href="#">Manage Roles</a>
+                        <a class="c-dropdown__item dropdown-item" href="#">Logout</a>
                     </div>
                 </div>
             </header>
@@ -325,7 +332,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-xl-9 u-p-zero" style="background-color: #ccf2ff">
-                        <div class="c-toolbar u-mb-medium">
+                        <div class="c-toolbar u-mb-medium" style="border-right: 1px solid #b1e1e7;">
                             <h3 class="c-toolbar__title has-divider">Active Projects</h3>
                             <h5 class="c-toolbar__meta u-mr-auto">7 Projects</h5>
 
@@ -350,7 +357,10 @@
                             </div>
                         </div>
 
-                    {% block body_home %}{% endblock %}
+                    {% block recherche %}{% endblock %}
+                    {% block body_tchat %}{% endblock %}
+                    {% block body_home %}
+                    {% endblock %}
                     </div>
 
                     <div class="col-xl-3 u-p-zero">
@@ -397,7 +407,7 @@
 
                                 <div class="o-media u-mb-small">
                                     <div class="o-media__img u-border-rounded u-mr-xsmall">
-                                       <img src="img/deadline1.jpg" alt="Images">
+                                       <img src="{{ asset('assets/img/deadline1.jpg') }}" alt="Images">
                                     </div>
                                     <div class="o-media__body">
                                         <h6 class="u-m-zero">Music App</h6>
@@ -407,7 +417,7 @@
 
                                 <div class="o-media u-mb-small">
                                     <div class="o-media__img u-border-rounded u-mr-xsmall">
-                                       <img src="img/deadline2.jpg" alt="Images">
+                                       <img src="{{ asset('assets/img/deadline2.jpg') }}" alt="Images">
                                     </div>
                                     <div class="o-media__body">
                                         <h6 class="u-m-zero">UI Design</h6>
@@ -417,7 +427,7 @@
 
                                 <div class="o-media">
                                     <div class="o-media__img u-border-rounded u-mr-xsmall">
-                                       <img src="img/deadline3.jpg" alt="Images">
+                                       <img src="{{ asset('assets/img/deadline3.jpg') }}" alt="Images">
                                     </div>
                                     <div class="o-media__body">
                                         <h6 class="u-m-zero">Web app</h6>
@@ -473,7 +483,15 @@
                 </div>
             </div>
         </div>
+        {# Recherche #}
+{% if app.request.query.get("recherche") is not empty %}
+{{ render(controller(
+        'App\\Controller\\MainController::recherche',
+        { 'nom': app.request.query.get("recherche") }
+    )) }}
+{% endif %}
 
-        <script src="js/main.min.js"></script>
+
     </body>
+         {% include 'tchat.html.twig' with {"message": message } %}
 </html>
