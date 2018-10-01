@@ -31537,9 +31537,6 @@ var ChatDialogue = function(){
 	// Add new message on pressing Enter Key
 	$('#input-chat').on('keypress', function (e) {
 	    if (e.which == 13) {
-		//	$.ajax({type: "POST",data:"m=" + this,success:function(retour){alert("Donnees retournees : " + retour );}});
-			//$.ajax({type:'POST',data:'input-chat'+this});
-
 	      	addChatMessage($(this));
 	      	updateHeight();
 	      	return false;
