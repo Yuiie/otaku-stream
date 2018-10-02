@@ -71,7 +71,7 @@ class AddController extends AbstractController
         //tchat
 
         //TchatClass::Tchat($request);
-        //$message = $em->getRepository('App:Tchat')->findAll();
+        $message = $em->getRepository('App:Tchat')->findAll();
 
 
         $Episode = new Episode();
