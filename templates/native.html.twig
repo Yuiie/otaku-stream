@@ -245,7 +245,7 @@
             </div><!-- // .c-sidebar -->
         </div><!-- // .o-page__sidebar -->
         
-        <div class="o-page__content">
+        <div class="o-page__content" style="background-color: #524D4C">
              <header class="c-navbar" style="background-color: #2e333a;border-bottom: 1px solid #b1e1e7;">
 
                 <button class="c-sidebar-toggle js-sidebar-toggle">
@@ -336,7 +336,6 @@
                         <a class="c-dropdown__item dropdown-item" href="#">View Activity</a>
                         <a class="c-dropdown__item dropdown-item" href="#">Logout</a>
                     </div>
-                </div>
             </header>
             
             <div class="container-fluid">
@@ -344,8 +343,8 @@
                     <div class="col-12 col-xl-9 u-p-zero" style="background-color: #524D4C">
                         
 
-                    {% block recherche %}{% endblock %}
-                    {% block body_tchat %}{% endblock %}
+                    {# block recherche %}{% endblock #}
+                    {# block body_tchat %}{% endblock #}
                     {% block body_home %}
                     {% endblock %}
                     </div>
@@ -356,13 +355,13 @@
 
         </div>
         {# Recherche 
-        #}
 {% if app.request.query.get("recherche") is not empty %}
 {{ render(controller(
         'App\\Controller\\MainController::recherche',
         { 'nom': app.request.query.get("recherche") }
     )) }}
 {% endif %}
+        #}
 
 
     </body>
