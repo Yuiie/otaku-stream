@@ -17,9 +17,6 @@
         <!-- Stylesheet -->
         <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
         <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
-        <script src="{{ asset('../js/main.min.js') }}"></script>
-        <script src="{{ asset('js/main.js') }}"></script>
-
     </head>
     <body class="o-page" style="background-color: #524D4C">
         <div class="o-page__sidebar js-page-sidebar">
@@ -365,5 +362,6 @@
 
 
     </body>
-         {# include 'tchat.html.twig' with {"message": message } #}
+
+         {% include 'tchat.html.twig' with {"message": message } %}
 </html>

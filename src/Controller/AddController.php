@@ -16,6 +16,8 @@ use App\Form\TchatType;
 use App\Utils\AnimeManager;
 use App\Form\CreateGroupeType;
 
+use Doctrine\Common\Persistence\ObjectManager;
+
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
@@ -23,6 +25,11 @@ use Symfony\Component\HttpFoundation\Request;
 class AddController extends AbstractController
 {
 
+    public function __construct(ObjectManager $objectManager)
+     {
+         TchatClass::setObjectManager($objectManager);
+     }        
+     
     /**
      * @Route("/add/anime", name="add-anime")
      */
@@ -33,7 +40,7 @@ class AddController extends AbstractController
 
         //tchat
 
-      //  TchatClass::Tchat($request);
+        TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
 
 
@@ -70,7 +77,7 @@ class AddController extends AbstractController
 
         //tchat
 
-        //TchatClass::Tchat($request);
+        TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
 
 
@@ -102,8 +109,8 @@ class AddController extends AbstractController
 
         //tchat
 
-       // TchatClass::Tchat($request);
-        //$message = $em->getRepository('App:Tchat')->findAll();
+        TchatClass::Tchat($request);
+        $message = $em->getRepository('App:Tchat')->findAll();
 
 
         $video = new Video();

@@ -47,7 +47,7 @@ class MainController extends AbstractController
      */
     public function index(Request $request)
     {
-        //TchatClass::Tchat($request);
+        TchatClass::Tchat($request);
  
         $db = $this->getDoctrine()->getManager();
         $message = $db->getRepository('App:Tchat')->findAll();
