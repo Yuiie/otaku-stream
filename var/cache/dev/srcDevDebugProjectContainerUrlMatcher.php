@@ -83,14 +83,13 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 break;
             default:
                 $routes = array(
+                    '/add/anime' => array(array('_route' => 'add-anime', '_controller' => 'App\\Controller\\AddController::AddAnime'), null, null, null),
+                    '/add/episode' => array(array('_route' => 'add-episode', '_controller' => 'App\\Controller\\AddController::AddEpisode'), null, null, null),
+                    '/add/video' => array(array('_route' => 'add video', '_controller' => 'App\\Controller\\AddController::AddVideo'), null, null, null),
                     '/group' => array(array('_route' => 'group', '_controller' => 'App\\Controller\\GroupeController::Group'), null, null, null),
                     '/group/create' => array(array('_route' => 'group create', '_controller' => 'App\\Controller\\GroupeController::CreateGroup'), null, null, null),
                     '/group/apply' => array(array('_route' => 'group apply', '_controller' => 'App\\Controller\\GroupeController::GroupMember'), null, null, null),
-                    '/tchat' => array(array('_route' => 'tchat', '_controller' => 'App\\Controller\\MainController::tchat'), null, null, null),
                     '/Anime' => array(array('_route' => 'anime', '_controller' => 'App\\Controller\\MainController::Anime'), null, null, null),
-                    '/add/anime' => array(array('_route' => 'add-anime', '_controller' => 'App\\Controller\\MainController::AddAnime'), null, null, null),
-                    '/add/episode' => array(array('_route' => 'add-episode', '_controller' => 'App\\Controller\\MainController::AddEpisode'), null, null, null),
-                    '/add/video' => array(array('_route' => 'add video', '_controller' => 'App\\Controller\\MainController::AddVideo'), null, null, null),
                     '/login' => array(array('_route' => 'fos_user_security_login', '_controller' => 'fos_user.security.controller:loginAction'), null, array('GET' => 0, 'POST' => 1), null),
                     '/login_check' => array(array('_route' => 'fos_user_security_check', '_controller' => 'fos_user.security.controller:checkAction'), null, array('POST' => 0), null),
                     '/logout' => array(array('_route' => 'fos_user_security_logout', '_controller' => 'fos_user.security.controller:logoutAction'), null, array('GET' => 0, 'POST' => 1), null),

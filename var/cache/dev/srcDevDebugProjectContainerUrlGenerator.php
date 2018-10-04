@@ -20,15 +20,14 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         $this->defaultLocale = $defaultLocale;
         if (null === self::$declaredRoutes) {
             self::$declaredRoutes = array(
+        'add-anime' => array(array(), array('_controller' => 'App\\Controller\\AddController::AddAnime'), array(), array(array('text', '/add/anime')), array(), array()),
+        'add-episode' => array(array(), array('_controller' => 'App\\Controller\\AddController::AddEpisode'), array(), array(array('text', '/add/episode')), array(), array()),
+        'add video' => array(array(), array('_controller' => 'App\\Controller\\AddController::AddVideo'), array(), array(array('text', '/add/video')), array(), array()),
         'group' => array(array(), array('_controller' => 'App\\Controller\\GroupeController::Group'), array(), array(array('text', '/group')), array(), array()),
         'group create' => array(array(), array('_controller' => 'App\\Controller\\GroupeController::CreateGroup'), array(), array(array('text', '/group/create')), array(), array()),
         'group apply' => array(array(), array('_controller' => 'App\\Controller\\GroupeController::GroupMember'), array(), array(array('text', '/group/apply')), array(), array()),
-        'tchat' => array(array(), array('_controller' => 'App\\Controller\\MainController::tchat'), array(), array(array('text', '/tchat')), array(), array()),
         'main' => array(array(), array('_controller' => 'App\\Controller\\MainController::index'), array(), array(array('text', '/')), array(), array()),
         'anime' => array(array(), array('_controller' => 'App\\Controller\\MainController::Anime'), array(), array(array('text', '/Anime')), array(), array()),
-        'add-anime' => array(array(), array('_controller' => 'App\\Controller\\MainController::AddAnime'), array(), array(array('text', '/add/anime')), array(), array()),
-        'add-episode' => array(array(), array('_controller' => 'App\\Controller\\MainController::AddEpisode'), array(), array(array('text', '/add/episode')), array(), array()),
-        'add video' => array(array(), array('_controller' => 'App\\Controller\\MainController::AddVideo'), array(), array(array('text', '/add/video')), array(), array()),
         'fos_user_security_login' => array(array(), array('_controller' => 'fos_user.security.controller:loginAction'), array(), array(array('text', '/login')), array(), array()),
         'fos_user_security_check' => array(array(), array('_controller' => 'fos_user.security.controller:checkAction'), array(), array(array('text', '/login_check')), array(), array()),
         'fos_user_security_logout' => array(array(), array('_controller' => 'fos_user.security.controller:logoutAction'), array(), array(array('text', '/logout')), array(), array()),

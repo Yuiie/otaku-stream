@@ -41,12 +41,14 @@ class TchatClass
         $tchat = new Tchat();
 
         if ($request->isMethod('POST')){
-            $message = $_POST['p'];
-            if ($message != NULL){   
-                $tchat->setNom("okllik");
-                $tchat->setMessage($message);
-                self::$em->persist($tchat);
-                self::$em->flush();
+            if (isset($_POST['p']) && $_POST['p'] != NULL){
+                $message = $_POST['p'];
+                if ($message != NULL){   
+                    $tchat->setNom("okllik");
+                    $tchat->setMessage($message);
+                    self::$em->persist($tchat);
+                    self::$em->flush();
+                }
             }
         }
     }

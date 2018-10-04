@@ -15,6 +15,7 @@ class __TwigTemplate_e1fdd64f87ccf5a0a13c5ea6b55e28d7d61373d4e004e24963806f944cf
 
         $this->blocks = array(
             'stylesheets' => array($this, 'block_stylesheets'),
+            'body_home' => array($this, 'block_body_home'),
         );
     }
 
@@ -33,8 +34,62 @@ class __TwigTemplate_e1fdd64f87ccf5a0a13c5ea6b55e28d7d61373d4e004e24963806f944cf
         // line 4
         $this->displayBlock('stylesheets', $context, $blocks);
         // line 18
-        echo "<body class=\"o-page o-page--center\">
+        $this->displayBlock('body_home', $context, $blocks);
+        // line 77
+        echo "</html>";
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+    }
+
+    // line 4
+    public function block_stylesheets($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
+
+        // line 5
+        echo "      <meta charset=\"utf-8\">
+        <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\">
+        <title>MA CO</title>
+        <meta name=\"description\" content=\"Dashboard UI Kit\">
+        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
+        <link href=\"";
+        // line 10
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/login.min.css"), "html", null, true);
+        echo "\" rel=\"stylesheet\">
+        <!-- Google Font -->
+        <link href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600\" rel=\"stylesheet\">
+ <script src=\"js/main.min.js\"></script>
+        <!-- Favicon -->
+        <link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\">
+        <link rel=\"shortcut icon\" href=\"favicon.ico\" type=\"image/x-icon\">
+";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
+
+    }
+
+    // line 18
+    public function block_body_home($context, array $blocks = array())
+    {
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body_home"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body_home"));
+
+        // line 19
+        echo "
 <div class=\"o-page__card\" >
             <div class=\"c-card u-mb-xsmall\">
                 <header class=\"c-card__header u-pt-large\">
@@ -118,42 +173,7 @@ class __TwigTemplate_e1fdd64f87ccf5a0a13c5ea6b55e28d7d61373d4e004e24963806f944cf
                 <a class=\"u-text-mute u-text-small\" href=\"forgot-password.html\">Forgot Password?</a>
             </div>
         </div>
-</body>
-</html>";
-        
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
-
-        
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
-
-    }
-
-    // line 4
-    public function block_stylesheets($context, array $blocks = array())
-    {
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
-        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
-        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "stylesheets"));
-
-        // line 5
-        echo "      <meta charset=\"utf-8\">
-        <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\">
-        <title>MA CO</title>
-        <meta name=\"description\" content=\"Dashboard UI Kit\">
-        <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
-        <link href=\"";
-        // line 10
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/css/login.min.css"), "html", null, true);
-        echo "\" rel=\"stylesheet\">
-        <!-- Google Font -->
-        <link href=\"https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400i,600\" rel=\"stylesheet\">
- <script src=\"js/main.min.js\"></script>
-        <!-- Favicon -->
-        <link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\">
-        <link rel=\"shortcut icon\" href=\"favicon.ico\" type=\"image/x-icon\">
-";
+        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -167,14 +187,9 @@ class __TwigTemplate_e1fdd64f87ccf5a0a13c5ea6b55e28d7d61373d4e004e24963806f944cf
         return "@FOSUser/Security/login_content.html.twig";
     }
 
-    public function isTraitable()
-    {
-        return false;
-    }
-
     public function getDebugInfo()
     {
-        return array (  148 => 10,  141 => 5,  132 => 4,  91 => 47,  83 => 42,  75 => 37,  71 => 36,  65 => 33,  60 => 32,  53 => 29,  51 => 28,  44 => 24,  36 => 18,  34 => 4,  30 => 2,);
+        return array (  146 => 47,  138 => 42,  130 => 37,  126 => 36,  120 => 33,  115 => 32,  108 => 29,  106 => 28,  99 => 24,  92 => 19,  83 => 18,  65 => 10,  58 => 5,  49 => 4,  39 => 77,  37 => 18,  35 => 4,  31 => 2,);
     }
 
     public function getSourceContext()
@@ -196,7 +211,7 @@ class __TwigTemplate_e1fdd64f87ccf5a0a13c5ea6b55e28d7d61373d4e004e24963806f944cf
         <link rel=\"apple-touch-icon\" href=\"apple-touch-icon.png\">
         <link rel=\"shortcut icon\" href=\"favicon.ico\" type=\"image/x-icon\">
 {% endblock %}
-<body class=\"o-page o-page--center\">
+{% block body_home %}
 
 <div class=\"o-page__card\" >
             <div class=\"c-card u-mb-xsmall\">
@@ -254,7 +269,7 @@ class __TwigTemplate_e1fdd64f87ccf5a0a13c5ea6b55e28d7d61373d4e004e24963806f944cf
                 <a class=\"u-text-mute u-text-small\" href=\"forgot-password.html\">Forgot Password?</a>
             </div>
         </div>
-</body>
+        {% endblock %}
 </html>", "@FOSUser/Security/login_content.html.twig", "C:\\xampp\\htdocs\\Otaku-Stream\\templates\\bundles\\FOSUserBundle\\Security\\login_content.html.twig");
     }
 }
