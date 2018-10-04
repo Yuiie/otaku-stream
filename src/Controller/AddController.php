@@ -73,6 +73,7 @@ class AddController extends AbstractController
      */
     public function AddEpisode(Request $request)
     {
+        
         $em = $this->getDoctrine()->getManager();
 
         //tchat
@@ -80,23 +81,21 @@ class AddController extends AbstractController
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
 
-
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+        {
+            $bdd = $this->container->get('security.token_storage')->getToken()->getUser();
+                $nom = $bdd->getUsername();
         $Episode = new Episode();
         $Episode->setDate(new \datetime('now'));
         $form = $this->createForm(AddEpisodeType::class, $Episode);
 
         if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
-            $nom = $Episode->getNom();
-            //trouver dans la table anime l'anime qui correspond a lepisode anime_id
-            $article = $this->getDoctrine()
-        ->getManager()
-        ->getRepository('App:Anime')
-        ->findOneByNom($nom)
-      ;
-      $Episode->setAnime($article);
+       
+      $Episode->setAuteur($nom);
       $em->persist($Episode);
             $em->flush();
         }
+    }
         return $this->render('main/Add-Episode.html.twig', ['form' => $form->createView(), 'message' => $message]);
     }
 
