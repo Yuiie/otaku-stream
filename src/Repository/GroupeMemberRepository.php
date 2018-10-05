@@ -30,6 +30,43 @@ class GroupeMemberRepository extends ServiceEntityRepository
         ;
     }
 
+    public function findByAdmin($value)
+    {
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.member = :val')
+            ->setParameter('val', $value)
+            ->andWhere('g.rank = :vals')
+            ->setParameter('vals', "1")
+            ->orderBy('g.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    public function findByRequest($value)
+    {
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.groupe = :val')
+            ->setParameter('val', $value)
+            ->andWhere('g.confirm = :vals')
+            ->setParameter('vals', "0")
+            ->orderBy('g.id', 'ASC')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+      public function findOneById($value)
+    {
+        return $this->createQueryBuilder('g')
+            ->andWhere('g.id = :val')
+            ->setParameter('val', $value)
+            ->getQuery()
+            ->getOneOrNullResult()
+            ;
+    }
+
+
 //    /**
 //     * @return GroupeMember[] Returns an array of GroupeMember objects
 //     */

@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+
+{% block stylesheets %}
+            <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% endblock %}
+
+{% block body_home %}
+
+    {% for request in req %}
+        <li><a class="nav-item" href="">{{request.id}} | {{ request.groupe.nom }} | {{ request.member.username }}</a></li>
+        <form method="POST">
+            <button name="accept" type="submit" value="{{request.id}}">Accepter</button>
+            <button name="reject" type="submit" value="{{request.id}}">Rejeter</button>
+        </form>
+    {% endfor %}
+
+
+{% endblock %}

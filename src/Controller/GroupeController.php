@@ -5,6 +5,8 @@ use App\Entity\Groupe;
 use App\Form\CreateGroupeType;
 use App\Entity\GroupeMember;
 use App\Form\GroupMemberType;
+use App\Utils\TchatClass;
+use App\Entity\Tchat;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -104,5 +106,43 @@ class GroupeController extends AbstractController
             }
         }
         return $this->render('groupe/group-member.html.twig', ['form' => $form->createView()]);
+    }
+
+    /**
+     * @Route("/group/accept", name="group accept")
+     */
+    public function GroupAccept(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+        $Groupe = new GroupeMember();
+        $group = NULL;
+        $req;
+        $i = 0;
+
+
+        // verifie que l'utillisateur est bien connecter et recupere les data
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+        {
+         
+                $bdd = $this->container->get('security.token_storage')->getToken()->getUser();
+                $id = $bdd->getId();
+
+                $mygroup = $this->getDoctrine()->getManager()->getRepository('App:GroupeMember')->findByAdmin($id);
+                $req = $this->getDoctrine()->getManager()->getRepository('App:GroupeMember')->findByRequest($mygroup);
+
+                if (isset($_POST['accept']) ) {
+                    $confirm = $this->getDoctrine()->getManager()->getRepository('App:GroupeMember')->findOneById($_POST['accept']);
+                    $confirm->setConfirm("1");
+                    $em->persist($confirm);
+                    $em->flush();
+                }
+                if (isset($_POST['reject']) ) {
+                    $confirm = $this->getDoctrine()->getManager()->getRepository('App:GroupeMember')->findOneById($_POST['reject']);
+                    $em->remove($confirm);
+                    $em->flush();
+            }
+                            
+        }
+        return $this->render('groupe/group-accept.html.twig', ["req" => $req, "mygroup" => $mygroup]);
     }
 }
