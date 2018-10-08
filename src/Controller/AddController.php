@@ -38,34 +38,38 @@ class AddController extends AbstractController
 
         $em = $this->getDoctrine()->getManager();
 
-        //tchat
-
+        ## Tchat
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
 
 
-        //$log = AnimeManager::mangaCall();
         $Anime = new Anime();
         $Anime->setDate(new \datetime('now'));
         $form = $this->createForm(AddAnimeType::class, $Anime);
 
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
+        ## Check Connexion
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                ## Check Form
+                if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+                    {
+                        $file = $Anime->getBrochure();
 
+                        $fileName = md5(uniqid()).'.'.$file->guessExtension();
+                        $file->move($this->getParameter('brochures_directory'),$fileName);
 
-            $file = $Anime->getBrochure();
-
-            $fileName = md5(uniqid()).'.'.$file->guessExtension();
-            $file->move($this->getParameter('brochures_directory'),$fileName);
-
-            $Anime->setBrochure($fileName);
-            $url_image = $this->generateUrl('index')."uploads/".$fileName;
-            $Anime->setImage($url_image);
-            
-            $em->persist($Anime);
-            $em->flush();
-           // return $this->redirect($this->generateUrl('main/Add-Anime.html.twig'));
-        }
-        return $this->render('main/Add-Anime.html.twig', ['form' => $form->createView(), 'message' => $message]);
+                        $Anime->setBrochure($fileName);
+                        $url_image = $this->generateUrl('index')."uploads/".$fileName;
+                        $Anime->setImage($url_image);
+                        
+                        $em->persist($Anime);
+                        $em->flush();
+                    }
+                }
+            else {
+                return $this->redirect('http://airi.ovh');
+            }
+        return $this->render('add/Add-Anime.html.twig', ['form' => $form->createView(), 'message' => $message]);
     }
 
       /**
@@ -76,27 +80,33 @@ class AddController extends AbstractController
         
         $em = $this->getDoctrine()->getManager();
 
-        //tchat
-
+        ## tchat
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
 
+        ## Check Connexion
         if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
-        {
-            $bdd = $this->container->get('security.token_storage')->getToken()->getUser();
+            {
+                ## Get user info
+                $bdd = $this->container->get('security.token_storage')->getToken()->getUser();
                 $nom = $bdd->getUsername();
-        $Episode = new Episode();
-        $Episode->setDate(new \datetime('now'));
-        $form = $this->createForm(AddEpisodeType::class, $Episode);
 
-        if ($request->isMethod('POST') && $form->handleRequest($request)->isValid()){
-       
-      $Episode->setAuteur($nom);
-      $em->persist($Episode);
-            $em->flush();
-        }
-    }
-        return $this->render('main/Add-Episode.html.twig', ['form' => $form->createView(), 'message' => $message]);
+                $Episode = new Episode();
+                $Episode->setDate(new \datetime('now'));
+                $form = $this->createForm(AddEpisodeType::class, $Episode);
+
+                ## Check form
+                if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+                    {
+                        $Episode->setAuteur($nom);
+                        $em->persist($Episode);
+                        $em->flush();
+                    }
+            }
+            else {
+                return $this->redirect('http://airi.ovh');
+            }
+        return $this->render('add/Add-Episode.html.twig', ['form' => $form->createView(), 'message' => $message]);
     }
 
     /**
@@ -106,8 +116,7 @@ class AddController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
 
-        //tchat
-
+        ## Tchat
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
 
@@ -115,20 +124,24 @@ class AddController extends AbstractController
         $video = new Video();
         $form = $this->createForm(VideoType::class, $video);
 
-        // verifie que l'utillisateur est bien connecter et recupere les data
-            // verifie que le formulaire est valide
-            if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+        ## Check Connexion
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
             {
-               // $episode = $form["episode"]->getData();
-               // $url = $form["url"]->getData();
-                
-                $em->persist($video);
-                $em->flush();
+            
+                ## Check form
+                if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
+                    {   
+                        $em->persist($video);
+                        $em->flush();
 
-                //ajouter un flashbag, oublie pas aussi dans la vue twig
-                $this->get('session')->getFlashBag()->add('notice', 'Video enregistré');
- 
-        }
-        return $this->render('anime/add-video.html.twig', ['form' => $form->createView(), 'message' => $message]);
+                        //ajouter un flashbag, oublie pas aussi dans la vue twig
+                        $this->get('session')->getFlashBag()->add('notice', 'Video enregistré');
+                    }
+    
+            }
+            else {
+                return $this->redirect('http://airi.ovh');
+            }
+        return $this->render('add/add-video.html.twig', ['form' => $form->createView(), 'message' => $message]);
     }
 }
