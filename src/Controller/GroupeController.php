@@ -34,7 +34,7 @@ class GroupeController extends AbstractController
     }
 
      /**
-     * @Route("/group/create", name="group create")
+     * @Route("/group/create", name="group_create")
      */
     public function CreateGroup(Request $request)
     {
@@ -76,7 +76,7 @@ class GroupeController extends AbstractController
     }
 
     /**
-     * @Route("/group/apply", name="group apply")
+     * @Route("/group/apply", name="group_apply")
      */
     public function GroupMember(Request $request)
     {
@@ -109,7 +109,7 @@ class GroupeController extends AbstractController
     }
 
     /**
-     * @Route("/group/accept", name="group accept")
+     * @Route("/group/accept", name="group_accept")
      */
     public function GroupAccept(Request $request)
     {

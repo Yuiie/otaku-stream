@@ -31,7 +31,7 @@ class AddController extends AbstractController
      }        
      
     /**
-     * @Route("/add/anime", name="add-anime")
+     * @Route("/add/anime", name="add_anime")
      */
     public function AddAnime(Request $request)
     {
@@ -73,7 +73,7 @@ class AddController extends AbstractController
     }
 
       /**
-     * @Route("/add/episode", name="add-episode")
+     * @Route("/add/episode", name="add_episode")
      */
     public function AddEpisode(Request $request)
     {
@@ -110,7 +110,7 @@ class AddController extends AbstractController
     }
 
     /**
-     * @Route("/add/video", name="add video")
+     * @Route("/add/video", name="add_video")
      */
     public function AddVideo(Request $request)
     {
