@@ -1,6 +1,5 @@
-{% extends "native.html.twig" %}
+{% extends "layout_profile.html.twig" %}
 {% set message = "" %}
-
-{% block body_home %}
-{% include "@FOSUser/Profile/show_content.html.twig" %}
-{% endblock body_home %}
+{% block home %}
+{% include "@FOSUser/Profile/show_profile.html.twig" %}
+{% endblock %}
