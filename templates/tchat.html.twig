@@ -1,5 +1,4 @@
 <div class="c-chat-dialogue">
-
             <div class="c-chat-dialogue__btn">
                 <i class="c-chat-dialogue__btn-open fa fa-comments"></i>
                 <i class="c-chat-dialogue__btn-close fa fa-close"></i>
@@ -49,7 +48,8 @@
                     {% endif %}
 
                 {% endfor %}
-
+                 <div id="local">
+    </div> 
                 </div>
 <!-- Form -->
                 <div class="c-chat-dialogue__footer">
@@ -58,9 +58,48 @@
                             <i class="fa fa-smile-o"></i>
                         </span>
                         <label class="c-field__label u-hidden-visually" for="input-chat">Begin Chat</label>
-		                    <input class="c-input" id="input-chat" name="m" type="text" placeholder="Begin Chat..">
+		                    <input class="c-input" id="msg" name="msg" type="text" placeholder="Begin Chat..">
+                            <button class="btn btn-primary" id="send" type="button">Submit form</button>
                     </div>
                 </div>
             </div>
 
         </div><!-- // .c-chat-dialogue -->
+
+
+        	<script type="text/javascript">
+        $(document).ready(function(){
+            var conn = new WebSocket('ws://localhost:8080');
+            conn.onopen = function(e) {
+                console.log("Connection established!");        
+            };
+
+            conn.onmessage = function(e) {
+                obj = JSON.parse(e.data);
+               document.getElementById('local').innerHTML = document.getElementById('local').innerHTML+"<br />"+'<div class="c-chat-dialogue__message"><div class="c-chat-dialogue__message-content">'+obj.msg+'</div></div>';
+              // document.write(e.data);
+
+			   console.log(e.data);		   
+            };
+
+            $("#send").click(function(){
+                 var msg = $("#msg").val();
+		        var user = "moi";
+                var data = {
+                    user: user,
+                    msg: msg
+                };
+                $.ajax({
+                    data: {
+                        user: user,
+                        msg: msg
+                    },
+                    type: "POST",
+                    url: "http://localhost/otaku-Stream/public/dbtchat",
+
+                })
+                document.getElementById('local').innerHTML = document.getElementById('local').innerHTML+'<br /><div class="c-chat-dialogue__message c-chat-dialogue__message--self"><div class="c-chat-dialogue__message-content">'+msg+'</div></div>';
+                conn.send(JSON.stringify(data));
+            })
+        })
+    </script>

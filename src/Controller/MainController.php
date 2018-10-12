@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Utils\TchatClass;
+use \DateTime;
 
 use App\Entity\Anime;
 use App\Entity\Episode;
@@ -40,7 +41,73 @@ class MainController extends AbstractController
     public function __construct(ObjectManager $objectManager)
      {
          TchatClass::setObjectManager($objectManager);
-     }        
+     }
+
+
+     public function reloadTchat(Request $request)
+    {
+        # get session, token and ../img/idity
+        $session = $request->getSession();
+        $date = new DateTime();
+        $this->tchat_time = $date->getTimestamp();
+        $tchat_time = $session->set('tchat_time', $this->tchat_time);
+
+    }
+
+     public function CountTime(Request $request)
+    {
+        # get session, token and ../img/idity
+        $session = $request->getSession();
+        $tchat_time = $session->get('tchat_time');
+
+        # if token is not NULL check ../img/idity
+        if ($tchat_time != NULL) {
+            $date = new DateTime();
+            $date_courante = $date->getTimestamp();
+            $interval = $date_courante - $tchat_time;
+            if ($interval > 15){
+                $this->reloadTchat($request);
+                return 1; 
+            }
+        }
+        else{
+            $this->reloadTchat($request);
+            return 1;
+        }
+        return 0;
+    }
+    /**
+     * @Route("/tchat", name="ma")
+     */
+    public function dkd(Request $request)
+    {
+        $db = $this->getDoctrine()->getManager();
+        $message = $db->getRepository('App:Tchat')->findAll();
+
+        return $this->render('index.html.twig', ['message' => $message]);
+    }
+
+       /**
+     * @Route("/dbtchat", name="db tchat")
+     */
+    public function dbTchat(Request $request)
+    {
+        $user = $request->request->get('user');
+        $msg = $request->request->get('msg');
+        
+        $tchat = new Tchat();
+        $db = $this->getDoctrine()->getManager();
+        
+        $tchat->setNom($user);
+        $tchat->setMessage($msg);
+        $db->persist($tchat);
+        $db->flush();
+
+        $resp = new Response("Message bien envoyé");
+        return $resp;
+        
+    }
+
 
     /**
      * @Route("/", name="main")
@@ -55,6 +122,14 @@ class MainController extends AbstractController
             $request->query->getInt('page', 1),
             6
         );
+        /*
+        $count = $this->CountTime($request);
+        if ($count == 1) {
+            $message = $db->getRepository('App:Tchat')->findAll();
+            $count = 0;
+        }
+        */
+
         return $this->render('main/home.html.twig', [
             'controller_name' => 'MainController', 'listarticle' => $episode, 'message' => $message
         ]);

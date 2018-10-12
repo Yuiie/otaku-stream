@@ -406,7 +406,11 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
         echo "                    ";
         $this->displayBlock('body_home', $context, $blocks);
         // line 347
-        echo "                    </div>
+        echo "
+
+
+
+                    </div>
 
                    
                 </div>
@@ -414,15 +418,15 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
 
         </div>
         ";
-        // line 362
+        // line 366
         echo "
 
     </body>
 
          ";
-        // line 366
-        $this->loadTemplate("tchat.html.twig", "native.html.twig", 366)->display(array_merge($context, array("message" => (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new Twig_Error_Runtime('Variable "message" does not exist.', 366, $this->source); })()))));
-        // line 367
+        // line 370
+        $this->loadTemplate("tchat.html.twig", "native.html.twig", 370)->display(array_merge($context, array("message" => (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new Twig_Error_Runtime('Variable "message" does not exist.', 370, $this->source); })()))));
+        // line 371
         echo "</html>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -463,7 +467,7 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
 
     public function getDebugInfo()
     {
-        return array (  445 => 346,  436 => 345,  426 => 367,  424 => 366,  418 => 362,  409 => 347,  406 => 345,  404 => 344,  390 => 332,  383 => 328,  267 => 215,  246 => 197,  231 => 185,  73 => 30,  65 => 25,  61 => 24,  53 => 19,  49 => 18,  30 => 1,);
+        return array (  449 => 346,  440 => 345,  430 => 371,  428 => 370,  422 => 366,  409 => 347,  406 => 345,  404 => 344,  390 => 332,  383 => 328,  267 => 215,  246 => 197,  231 => 185,  73 => 30,  65 => 25,  61 => 24,  53 => 19,  49 => 18,  30 => 1,);
     }
 
     public function getSourceContext()
@@ -814,6 +818,10 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
                     {# block body_tchat %}{% endblock #}
                     {% block body_home %}
                     {% endblock %}
+
+
+
+
                     </div>
 
                    

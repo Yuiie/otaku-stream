@@ -93,15 +93,16 @@ class __TwigTemplate_3943f58348ac4a50160d150895b3e44932a55552b93282c32ccaf635b62
             echo "                            <div class=\"col-sm-6 col-md-4\">
 
                                 <div class=\"c-project-card u-mb-medium\">
-                                    <img src=\"";
-            // line 21
+                                    <center>
+                                    <img class=\"img-fluid\" src=\"";
+            // line 22
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "anime", array()), "image", array()), "html", null, true);
             echo "\" style=\"width: 300px; height: 170px;\" alt=\"About the image\">
-
+                                    </center>
                                     <div class=\"c-project-card__content\">
                                         <div class=\"c-project-card__head\">
                                             <h4 class=\"c-project-card__title\"><a class=\"nav-item\" href=\"";
-            // line 25
+            // line 26
             echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("Anime", array("id" => twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "anime", array()), "id", array()), "ep" => twig_get_attribute($this->env, $this->source, $context["article"], "episode", array()))), "html", null, true);
             echo "\">";
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, $context["article"], "anime", array()), "nom", array()), "html", null, true);
@@ -125,15 +126,15 @@ class __TwigTemplate_3943f58348ac4a50160d150895b3e44932a55552b93282c32ccaf635b62
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 39
+        // line 40
         echo " ";
-        // line 41
+        // line 42
         echo " <tfoot>
  
         <tr>
                 ";
-        // line 44
-        echo $this->extensions['Tiloweb\PaginationBundle\Twig\Extension\PaginationExtension']->paginationFunction((isset($context["listarticle"]) || array_key_exists("listarticle", $context) ? $context["listarticle"] : (function () { throw new Twig_Error_Runtime('Variable "listarticle" does not exist.', 44, $this->source); })()), "page");
+        // line 45
+        echo $this->extensions['Tiloweb\PaginationBundle\Twig\Extension\PaginationExtension']->paginationFunction((isset($context["listarticle"]) || array_key_exists("listarticle", $context) ? $context["listarticle"] : (function () { throw new Twig_Error_Runtime('Variable "listarticle" does not exist.', 45, $this->source); })()), "page");
         echo "
         </tr>
 </tfoot>
@@ -162,7 +163,7 @@ class __TwigTemplate_3943f58348ac4a50160d150895b3e44932a55552b93282c32ccaf635b62
 
     public function getDebugInfo()
     {
-        return array (  136 => 44,  131 => 41,  129 => 39,  105 => 25,  98 => 21,  93 => 18,  89 => 17,  85 => 15,  76 => 14,  57 => 5,  48 => 4,  38 => 1,  36 => 2,  15 => 1,);
+        return array (  137 => 45,  132 => 42,  130 => 40,  106 => 26,  99 => 22,  93 => 18,  89 => 17,  85 => 15,  76 => 14,  57 => 5,  48 => 4,  38 => 1,  36 => 2,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -187,8 +188,9 @@ class __TwigTemplate_3943f58348ac4a50160d150895b3e44932a55552b93282c32ccaf635b62
                             <div class=\"col-sm-6 col-md-4\">
 
                                 <div class=\"c-project-card u-mb-medium\">
-                                    <img src=\"{{ article.anime.image }}\" style=\"width: 300px; height: 170px;\" alt=\"About the image\">
-
+                                    <center>
+                                    <img class=\"img-fluid\" src=\"{{ article.anime.image }}\" style=\"width: 300px; height: 170px;\" alt=\"About the image\">
+                                    </center>
                                     <div class=\"c-project-card__content\">
                                         <div class=\"c-project-card__head\">
                                             <h4 class=\"c-project-card__title\"><a class=\"nav-item\" href=\"{{ path('Anime', { 'id': article.anime.id , 'ep': article.episode }) }}\">{{ article.anime.nom }} {{ article.episode }}</a><span class=\"c-badge c-badge--success c-badge--xsmall u-ml-xsmall\">New</span></h4>

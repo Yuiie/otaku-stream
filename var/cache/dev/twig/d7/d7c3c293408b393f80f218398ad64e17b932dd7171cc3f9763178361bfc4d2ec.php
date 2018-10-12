@@ -97,44 +97,46 @@ class __TwigTemplate_2aed7ea9618d29ef63f03fc6725a2fe5704a7f84bda75fb6eb503c10246
 
         // line 23
         echo "  <div class=\"row u-m-small\">
+        <center>
         ";
-        // line 24
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 24, $this->source); })()), 'form_start');
+        // line 25
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 25, $this->source); })()), 'form_start');
         echo "
 
         <div class=\"form-group\">
             ";
-        // line 27
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 27, $this->source); })()), "anime", array()), 'label');
-        echo "
-            ";
         // line 28
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 28, $this->source); })()), "anime", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 28, $this->source); })()), "anime", array()), 'label');
         echo "
             ";
         // line 29
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 29, $this->source); })()), "anime", array()), 'errors');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 29, $this->source); })()), "anime", array()), 'widget', array("attr" => array("class" => "c-input")));
+        echo "
+            ";
+        // line 30
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 30, $this->source); })()), "anime", array()), 'errors');
         echo "
         </div>
         <div class=\"form-group\">
             ";
-        // line 32
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 32, $this->source); })()), "episode", array()), 'label');
-        echo "
-            ";
         // line 33
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 33, $this->source); })()), "episode", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 33, $this->source); })()), "episode", array()), 'label');
         echo "
             ";
         // line 34
-        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 34, $this->source); })()), "episode", array()), 'errors');
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 34, $this->source); })()), "episode", array()), 'widget', array("attr" => array("class" => "c-input")));
         echo "
-        </div>
-        <input type=\"submit\" value=\"Send\" />
+            ";
+        // line 35
+        echo $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->searchAndRenderBlock(twig_get_attribute($this->env, $this->source, (isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 35, $this->source); })()), "episode", array()), 'errors');
+        echo "
+        </div><br />
+        <input type=\"submit\" value=\"Send\" class=\"c-input\"/>
         ";
-        // line 37
-        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 37, $this->source); })()), 'form_end');
+        // line 38
+        echo         $this->env->getRuntime('Symfony\Component\Form\FormRenderer')->renderBlock((isset($context["form"]) || array_key_exists("form", $context) ? $context["form"] : (function () { throw new Twig_Error_Runtime('Variable "form" does not exist.', 38, $this->source); })()), 'form_end');
         echo "
+        </center>
     </div>
     <script src=\"../js/main.min.js\"></script>
 ";
@@ -158,7 +160,7 @@ class __TwigTemplate_2aed7ea9618d29ef63f03fc6725a2fe5704a7f84bda75fb6eb503c10246
 
     public function getDebugInfo()
     {
-        return array (  136 => 37,  130 => 34,  126 => 33,  122 => 32,  116 => 29,  112 => 28,  108 => 27,  102 => 24,  99 => 23,  90 => 22,  77 => 18,  73 => 17,  57 => 5,  48 => 4,  38 => 1,  36 => 2,  15 => 1,);
+        return array (  137 => 38,  131 => 35,  127 => 34,  123 => 33,  117 => 30,  113 => 29,  109 => 28,  103 => 25,  99 => 23,  90 => 22,  77 => 18,  73 => 17,  57 => 5,  48 => 4,  38 => 1,  36 => 2,  15 => 1,);
     }
 
     public function getSourceContext()
@@ -186,20 +188,22 @@ class __TwigTemplate_2aed7ea9618d29ef63f03fc6725a2fe5704a7f84bda75fb6eb503c10246
 
 {% block body_home %}
   <div class=\"row u-m-small\">
+        <center>
         {{ form_start(form) }}
 
         <div class=\"form-group\">
             {{ form_label(form.anime) }}
-            {{ form_widget(form.anime, {'attr':{'class':'form-control'}}) }}
+            {{ form_widget(form.anime, {'attr':{'class':'c-input'}}) }}
             {{ form_errors(form.anime) }}
         </div>
         <div class=\"form-group\">
             {{ form_label(form.episode) }}
-            {{ form_widget(form.episode, {'attr':{'class':'form-control'}}) }}
+            {{ form_widget(form.episode, {'attr':{'class':'c-input'}}) }}
             {{ form_errors(form.episode) }}
-        </div>
-        <input type=\"submit\" value=\"Send\" />
+        </div><br />
+        <input type=\"submit\" value=\"Send\" class=\"c-input\"/>
         {{ form_end(form) }}
+        </center>
     </div>
     <script src=\"../js/main.min.js\"></script>
 {% endblock %}", "main/Add-Episode.html.twig", "C:\\xampp\\htdocs\\Otaku-Stream\\templates\\main\\Add-Episode.html.twig");

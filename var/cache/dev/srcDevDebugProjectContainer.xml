@@ -570,6 +570,10 @@
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
     </service>
+    <service id="App\Repository\FavorisRepository" class="App\Repository\FavorisRepository" public="false" autowire="true" autoconfigure="true">
+      <tag name="doctrine.repository_service"/>
+      <argument type="service" id="doctrine"/>
+    </service>
     <service id="App\Repository\GroupeMemberRepository" class="App\Repository\GroupeMemberRepository" public="false" autowire="true" autoconfigure="true">
       <tag name="doctrine.repository_service"/>
       <argument type="service" id="doctrine"/>
@@ -591,6 +595,7 @@
       <argument type="service" id="doctrine"/>
     </service>
     <service id="App\Utils\AnimeManager" class="App\Utils\AnimeManager" public="false" autowire="true" autoconfigure="true"/>
+    <service id="App\Utils\Chat" class="App\Utils\Chat" public="false" autowire="true" autoconfigure="true"/>
     <service id="App\Utils\TchatClass" class="App\Utils\TchatClass" public="false" autowire="true" autoconfigure="true">
       <argument type="service" id="request_stack"/>
     </service>
@@ -2400,14 +2405,6 @@
         <argument>2048</argument>
       </call>
       <call method="addListener">
-        <argument>console.command</argument>
-        <argument type="collection">
-          <argument type="service" id="debug.debug_handlers_listener"/>
-          <argument>configure</argument>
-        </argument>
-        <argument>2048</argument>
-      </call>
-      <call method="addListener">
         <argument>kernel.request</argument>
         <argument type="collection">
           <argument type="service" id="router_listener"/>
@@ -3293,7 +3290,7 @@
       <factory class="Doctrine\ORM\EntityManager" method="create"/>
     </service>
     <service id="doctrine.orm.container_repository_factory" class="Doctrine\Bundle\DoctrineBundle\Repository\ContainerRepositoryFactory" public="false">
-      <argument type="service" id=".service_locator.dmiE4MG"/>
+      <argument type="service" id=".service_locator.AIwwIts"/>
     </service>
     <service id="doctrine.orm.manager_configurator.abstract" class="Doctrine\Bundle\DoctrineBundle\ManagerConfigurator" abstract="true">
       <argument type="collection"/>
@@ -5630,6 +5627,8 @@
     <service id=".abstract.instanceof.App\Repository\AnimeRepository" class="App\Repository\AnimeRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\EpisodeRepository" class="App\Repository\EpisodeRepository" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\EpisodeRepository" class="App\Repository\EpisodeRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
+    <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\FavorisRepository" class="App\Repository\FavorisRepository" public="false" autowire="true" abstract="true"/>
+    <service id=".abstract.instanceof.App\Repository\FavorisRepository" class="App\Repository\FavorisRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\GroupeMemberRepository" class="App\Repository\GroupeMemberRepository" public="false" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\Repository\GroupeMemberRepository" class="App\Repository\GroupeMemberRepository" public="false" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepositoryInterface.0.App\Repository\GroupeRepository" class="App\Repository\GroupeRepository" public="false" autowire="true" abstract="true"/>
@@ -5873,11 +5872,12 @@
         <argument key="Symfony\Component\Form\Extension\Core\Type\FormType" type="service" id="form.type.form"/>
       </argument>
     </service>
-    <service id=".service_locator.dmiE4MG" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
+    <service id=".service_locator.AIwwIts" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="App\Repository\AnimeRepository" type="service" id="App\Repository\AnimeRepository"/>
         <argument key="App\Repository\EpisodeRepository" type="service" id="App\Repository\EpisodeRepository"/>
+        <argument key="App\Repository\FavorisRepository" type="service" id="App\Repository\FavorisRepository"/>
         <argument key="App\Repository\GroupeMemberRepository" type="service" id="App\Repository\GroupeMemberRepository"/>
         <argument key="App\Repository\GroupeRepository" type="service" id="App\Repository\GroupeRepository"/>
         <argument key="App\Repository\TchatRepository" type="service" id="App\Repository\TchatRepository"/>

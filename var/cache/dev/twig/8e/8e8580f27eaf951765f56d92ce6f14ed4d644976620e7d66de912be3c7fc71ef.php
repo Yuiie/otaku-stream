@@ -31,7 +31,7 @@ class __TwigTemplate_f114588e71962b2c791dc633033d397f01f9131474c731dd4ff1ea0026d
             echo "    ";
             $context["page"] = twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 2, $this->source); })()), "request", array()), "query", array()), "int", array(0 => (isset($context["get"]) || array_key_exists("get", $context) ? $context["get"] : (function () { throw new Twig_Error_Runtime('Variable "get" does not exist.', 2, $this->source); })()), 1 => 1), "method");
             // line 3
-            echo "    <ul class=\"pagination\">
+            echo "                        <ul class=\"c-pagination__list\">
         ";
             // line 4
             if (((isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 4, $this->source); })()) > 2)) {
@@ -58,87 +58,89 @@ class __TwigTemplate_f114588e71962b2c791dc633033d397f01f9131474c731dd4ff1ea0026d
                 echo "disabled";
             }
             echo "\">
-            <a href=\"";
-            // line 13
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 13, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 13, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route_params"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 13, $this->source); })()), "request", array()), "query", array()), "all", array()), array((isset($context["get"]) || array_key_exists("get", $context) ? $context["get"] : (function () { throw new Twig_Error_Runtime('Variable "get" does not exist.', 13, $this->source); })()) => ((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 13, $this->source); })()) - 1))))), "html", null, true);
-            echo "\" class=\"page-link\" ";
-            if (((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 13, $this->source); })()) > 1)) {
+
+            <li class=\"c-pagination__item\">
+                                <a class=\"c-pagination__control\" href=\"";
+            // line 15
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 15, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 15, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route_params"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 15, $this->source); })()), "request", array()), "query", array()), "all", array()), array((isset($context["get"]) || array_key_exists("get", $context) ? $context["get"] : (function () { throw new Twig_Error_Runtime('Variable "get" does not exist.', 15, $this->source); })()) => ((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 15, $this->source); })()) - 1))))), "html", null, true);
+            echo "\" ";
+            if (((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 15, $this->source); })()) > 1)) {
                 echo "rel=\"prev\"";
             }
             echo ">
-                <
-            </a>
+                                    <i class=\"fa fa-caret-left\"></i>
+                                </a>
+                            </li>
         </li>
 
         ";
-            // line 19
+            // line 22
             echo "        ";
             $context['_parent'] = $context;
-            $context['_seq'] = twig_ensure_traversable(range(max(((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 19, $this->source); })()) - 4), 1), min(((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 19, $this->source); })()) + 4), (isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 19, $this->source); })()))));
+            $context['_seq'] = twig_ensure_traversable(range(max(((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 22, $this->source); })()) - 4), 1), min(((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 22, $this->source); })()) + 4), (isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 22, $this->source); })()))));
             foreach ($context['_seq'] as $context["_key"] => $context["p"]) {
-                // line 20
+                // line 23
                 echo "            <li class=\"page-item ";
-                if (($context["p"] == (isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 20, $this->source); })()))) {
+                if (($context["p"] == (isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 23, $this->source); })()))) {
                     echo "active";
                 } else {
                     echo "hidden-xs";
                 }
                 echo "\">
-                <a href=\"";
-                // line 21
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 21, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 21, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route_params"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 21, $this->source); })()), "request", array()), "query", array()), "all", array()), array((isset($context["get"]) || array_key_exists("get", $context) ? $context["get"] : (function () { throw new Twig_Error_Runtime('Variable "get" does not exist.', 21, $this->source); })()) => $context["p"])))), "html", null, true);
-                echo "\" class=\"page-link\">
-                    ";
-                // line 22
+                  <li class=\"c-pagination__item\"><a class=\"c-pagination__link\" href=\"";
+                // line 24
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 24, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 24, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route_params"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 24, $this->source); })()), "request", array()), "query", array()), "all", array()), array((isset($context["get"]) || array_key_exists("get", $context) ? $context["get"] : (function () { throw new Twig_Error_Runtime('Variable "get" does not exist.', 24, $this->source); })()) => $context["p"])))), "html", null, true);
+                echo "\">";
                 echo twig_escape_filter($this->env, $context["p"], "html", null, true);
-                echo "
-                </a>
+                echo "</a></li>
             </li>
         ";
             }
             $_parent = $context['_parent'];
             unset($context['_seq'], $context['_iterated'], $context['_key'], $context['p'], $context['_parent'], $context['loop']);
             $context = array_intersect_key($context, $_parent) + $_parent;
-            // line 26
+            // line 27
             echo "
         <li class=\"page-item next ";
-            // line 27
-            if (((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 27, $this->source); })()) == (isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 27, $this->source); })()))) {
+            // line 28
+            if (((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 28, $this->source); })()) == (isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 28, $this->source); })()))) {
                 echo "disabled";
             }
             echo "\">
-            <a href=\"";
-            // line 28
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 28, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 28, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route_params"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 28, $this->source); })()), "request", array()), "query", array()), "all", array()), array((isset($context["get"]) || array_key_exists("get", $context) ? $context["get"] : (function () { throw new Twig_Error_Runtime('Variable "get" does not exist.', 28, $this->source); })()) => ((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 28, $this->source); })()) + 1))))), "html", null, true);
-            echo "\" class=\"page-link\" ";
-            if (((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 28, $this->source); })()) < (isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 28, $this->source); })()))) {
+        <li class=\"c-pagination__item\">
+                                <a class=\"c-pagination__control\" href=\"";
+            // line 30
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 30, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 30, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route_params"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 30, $this->source); })()), "request", array()), "query", array()), "all", array()), array((isset($context["get"]) || array_key_exists("get", $context) ? $context["get"] : (function () { throw new Twig_Error_Runtime('Variable "get" does not exist.', 30, $this->source); })()) => ((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 30, $this->source); })()) + 1))))), "html", null, true);
+            echo "\" ";
+            if (((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 30, $this->source); })()) < (isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 30, $this->source); })()))) {
                 echo "rel=\"next\"";
             }
             echo ">
-                >
-            </a>
+                                    <i class=\"fa fa-caret-right\"></i>
+                                </a>
+                            </li>
         </li>
 
         ";
-            // line 33
-            if (((isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 33, $this->source); })()) > 2)) {
-                // line 34
+            // line 36
+            if (((isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 36, $this->source); })()) > 2)) {
+                // line 37
                 echo "            <li class=\"page-item end ";
-                if (((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 34, $this->source); })()) == (isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 34, $this->source); })()))) {
+                if (((isset($context["page"]) || array_key_exists("page", $context) ? $context["page"] : (function () { throw new Twig_Error_Runtime('Variable "page" does not exist.', 37, $this->source); })()) == (isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 37, $this->source); })()))) {
                     echo "disabled";
                 }
                 echo "\">
                 <a href=\"";
-                // line 35
-                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 35, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 35, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route_params"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 35, $this->source); })()), "request", array()), "query", array()), "all", array()), array((isset($context["get"]) || array_key_exists("get", $context) ? $context["get"] : (function () { throw new Twig_Error_Runtime('Variable "get" does not exist.', 35, $this->source); })()) => (isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 35, $this->source); })()))))), "html", null, true);
+                // line 38
+                echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 38, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 38, $this->source); })()), "request", array()), "attributes", array()), "get", array(0 => "_route_params"), "method"), twig_array_merge(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new Twig_Error_Runtime('Variable "app" does not exist.', 38, $this->source); })()), "request", array()), "query", array()), "all", array()), array((isset($context["get"]) || array_key_exists("get", $context) ? $context["get"] : (function () { throw new Twig_Error_Runtime('Variable "get" does not exist.', 38, $this->source); })()) => (isset($context["pages"]) || array_key_exists("pages", $context) ? $context["pages"] : (function () { throw new Twig_Error_Runtime('Variable "pages" does not exist.', 38, $this->source); })()))))), "html", null, true);
                 echo "\" class=\"page-link\">
                     >>
                 </a>
             </li>
         ";
             }
-            // line 40
-            echo "    </ul>
+            // line 43
+            echo "     </ul>
 ";
         }
         
@@ -161,14 +163,14 @@ class __TwigTemplate_f114588e71962b2c791dc633033d397f01f9131474c731dd4ff1ea0026d
 
     public function getDebugInfo()
     {
-        return array (  141 => 40,  133 => 35,  126 => 34,  124 => 33,  112 => 28,  106 => 27,  103 => 26,  93 => 22,  89 => 21,  80 => 20,  75 => 19,  63 => 13,  57 => 12,  54 => 11,  46 => 6,  39 => 5,  37 => 4,  34 => 3,  31 => 2,  29 => 1,);
+        return array (  143 => 43,  135 => 38,  128 => 37,  126 => 36,  113 => 30,  106 => 28,  103 => 27,  92 => 24,  83 => 23,  78 => 22,  65 => 15,  57 => 12,  54 => 11,  46 => 6,  39 => 5,  37 => 4,  34 => 3,  31 => 2,  29 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{% if pages > 1 %}
     {% set page =  app.request.query.int(get, 1) %}
-    <ul class=\"pagination\">
+                        <ul class=\"c-pagination__list\">
         {% if pages > 2 %}
             <li class=\"page-item start {% if page == 1 %}disabled{% endif %}\">
                 <a href=\"{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): 1}))) }}\" class=\"page-link\">
@@ -178,24 +180,27 @@ class __TwigTemplate_f114588e71962b2c791dc633033d397f01f9131474c731dd4ff1ea0026d
         {% endif %}
 
         <li class=\"page-item prev {% if page == 1 %}disabled{% endif %}\">
-            <a href=\"{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): page - 1}))) }}\" class=\"page-link\" {% if page > 1 %}rel=\"prev\"{% endif %}>
-                <
-            </a>
+
+            <li class=\"c-pagination__item\">
+                                <a class=\"c-pagination__control\" href=\"{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): page - 1}))) }}\" {% if page > 1 %}rel=\"prev\"{% endif %}>
+                                    <i class=\"fa fa-caret-left\"></i>
+                                </a>
+                            </li>
         </li>
 
         {# Affichage de toutes les pages entre p-4 et p+4 sauf si < 1 ou > nbPages #}
         {% for p in range(max(page - 4, 1), min(page + 4, pages)) %}
             <li class=\"page-item {% if p == page %}active{% else %}hidden-xs{% endif %}\">
-                <a href=\"{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): p}))) }}\" class=\"page-link\">
-                    {{ p }}
-                </a>
+                  <li class=\"c-pagination__item\"><a class=\"c-pagination__link\" href=\"{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): p}))) }}\">{{ p }}</a></li>
             </li>
         {% endfor %}
 
         <li class=\"page-item next {% if page == pages %}disabled{% endif %}\">
-            <a href=\"{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): page +1 }))) }}\" class=\"page-link\" {% if page < pages %}rel=\"next\"{% endif %}>
-                >
-            </a>
+        <li class=\"c-pagination__item\">
+                                <a class=\"c-pagination__control\" href=\"{{ path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')|merge(app.request.query.all|merge({(get): page +1 }))) }}\" {% if page < pages %}rel=\"next\"{% endif %}>
+                                    <i class=\"fa fa-caret-right\"></i>
+                                </a>
+                            </li>
         </li>
 
         {% if pages > 2 %}
@@ -205,7 +210,7 @@ class __TwigTemplate_f114588e71962b2c791dc633033d397f01f9131474c731dd4ff1ea0026d
                 </a>
             </li>
         {% endif %}
-    </ul>
+     </ul>
 {% endif %}
 ", "TilowebPaginationBundle::pagination.html.twig", "C:\\xampp\\htdocs\\Otaku-Stream\\vendor\\tiloweb\\pagination-bundle\\Tiloweb\\PaginationBundle/Resources/views/pagination.html.twig");
     }

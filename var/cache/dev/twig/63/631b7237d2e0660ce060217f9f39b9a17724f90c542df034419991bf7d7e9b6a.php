@@ -27,7 +27,6 @@ class __TwigTemplate_14aee0ff6e9315e2a52573432a52bca179128ac97f25cba7daf2bac482a
 
         // line 1
         echo "<div class=\"c-chat-dialogue\">
-
             <div class=\"c-chat-dialogue__btn\">
                 <i class=\"c-chat-dialogue__btn-open fa fa-comments\"></i>
                 <i class=\"c-chat-dialogue__btn-close fa fa-close\"></i>
@@ -61,46 +60,47 @@ class __TwigTemplate_14aee0ff6e9315e2a52573432a52bca179128ac97f25cba7daf2bac482a
                 <div class=\"c-chat-dialogue__messages\">
 
                 ";
-        // line 35
+        // line 34
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new Twig_Error_Runtime('Variable "message" does not exist.', 35, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new Twig_Error_Runtime('Variable "message" does not exist.', 34, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["messages"]) {
-            // line 36
+            // line 35
             echo "
                     ";
-            // line 37
+            // line 36
             if ((twig_get_attribute($this->env, $this->source, $context["messages"], "nom", array()) == "moi")) {
-                // line 38
+                // line 37
                 echo "                    <div class=\"c-chat-dialogue__message c-chat-dialogue__message--self\">
                         <div class=\"c-chat-dialogue__message-content\">
                             ";
-                // line 40
+                // line 39
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["messages"], "message", array()), "html", null, true);
                 echo "
                         </div>
                     </div>
                     ";
             } else {
-                // line 44
+                // line 43
                 echo "                    <div class=\"c-chat-dialogue__message\">
                         <div class=\"c-chat-dialogue__message-content\">
                             ";
-                // line 46
+                // line 45
                 echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["messages"], "message", array()), "html", null, true);
                 echo "
                         </div>
                     </div>
                     ";
             }
-            // line 50
+            // line 49
             echo "
                 ";
         }
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['messages'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 52
-        echo "
+        // line 51
+        echo "                 <div id=\"local\">
+    </div> 
                 </div>
 <!-- Form -->
                 <div class=\"c-chat-dialogue__footer\">
@@ -109,12 +109,51 @@ class __TwigTemplate_14aee0ff6e9315e2a52573432a52bca179128ac97f25cba7daf2bac482a
                             <i class=\"fa fa-smile-o\"></i>
                         </span>
                         <label class=\"c-field__label u-hidden-visually\" for=\"input-chat\">Begin Chat</label>
-\t\t                    <input class=\"c-input\" id=\"input-chat\" name=\"m\" type=\"text\" placeholder=\"Begin Chat..\">
+\t\t                    <input class=\"c-input\" id=\"msg\" name=\"msg\" type=\"text\" placeholder=\"Begin Chat..\">
+                            <button class=\"btn btn-primary\" id=\"send\" type=\"button\">Submit form</button>
                     </div>
                 </div>
             </div>
 
-        </div><!-- // .c-chat-dialogue -->";
+        </div><!-- // .c-chat-dialogue -->
+
+
+        \t<script type=\"text/javascript\">
+        \$(document).ready(function(){
+            var conn = new WebSocket('ws://localhost:8080');
+            conn.onopen = function(e) {
+                console.log(\"Connection established!\");        
+            };
+
+            conn.onmessage = function(e) {
+                obj = JSON.parse(e.data);
+               document.getElementById('local').innerHTML = document.getElementById('local').innerHTML+\"<br />\"+'<div class=\"c-chat-dialogue__message\"><div class=\"c-chat-dialogue__message-content\">'+obj.msg+'</div></div>';
+              // document.write(e.data);
+
+\t\t\t   console.log(e.data);\t\t   
+            };
+
+            \$(\"#send\").click(function(){
+                 var msg = \$(\"#msg\").val();
+\t\t        var user = \"moi\";
+                var data = {
+                    user: user,
+                    msg: msg
+                };
+                \$.ajax({
+                    data: {
+                        user: user,
+                        msg: msg
+                    },
+                    type: \"POST\",
+                    url: \"http://localhost/otaku-Stream/public/dbtchat\",
+
+                })
+                document.getElementById('local').innerHTML = document.getElementById('local').innerHTML+'<br /><div class=\"c-chat-dialogue__message c-chat-dialogue__message--self\"><div class=\"c-chat-dialogue__message-content\">'+msg+'</div></div>';
+                conn.send(JSON.stringify(data));
+            })
+        })
+    </script>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
@@ -135,13 +174,12 @@ class __TwigTemplate_14aee0ff6e9315e2a52573432a52bca179128ac97f25cba7daf2bac482a
 
     public function getDebugInfo()
     {
-        return array (  103 => 52,  96 => 50,  89 => 46,  85 => 44,  78 => 40,  74 => 38,  72 => 37,  69 => 36,  65 => 35,  29 => 1,);
+        return array (  102 => 51,  95 => 49,  88 => 45,  84 => 43,  77 => 39,  73 => 37,  71 => 36,  68 => 35,  64 => 34,  29 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("<div class=\"c-chat-dialogue\">
-
             <div class=\"c-chat-dialogue__btn\">
                 <i class=\"c-chat-dialogue__btn-open fa fa-comments\"></i>
                 <i class=\"c-chat-dialogue__btn-close fa fa-close\"></i>
@@ -191,7 +229,8 @@ class __TwigTemplate_14aee0ff6e9315e2a52573432a52bca179128ac97f25cba7daf2bac482a
                     {% endif %}
 
                 {% endfor %}
-
+                 <div id=\"local\">
+    </div> 
                 </div>
 <!-- Form -->
                 <div class=\"c-chat-dialogue__footer\">
@@ -200,11 +239,50 @@ class __TwigTemplate_14aee0ff6e9315e2a52573432a52bca179128ac97f25cba7daf2bac482a
                             <i class=\"fa fa-smile-o\"></i>
                         </span>
                         <label class=\"c-field__label u-hidden-visually\" for=\"input-chat\">Begin Chat</label>
-\t\t                    <input class=\"c-input\" id=\"input-chat\" name=\"m\" type=\"text\" placeholder=\"Begin Chat..\">
+\t\t                    <input class=\"c-input\" id=\"msg\" name=\"msg\" type=\"text\" placeholder=\"Begin Chat..\">
+                            <button class=\"btn btn-primary\" id=\"send\" type=\"button\">Submit form</button>
                     </div>
                 </div>
             </div>
 
-        </div><!-- // .c-chat-dialogue -->", "tchat.html.twig", "C:\\xampp\\htdocs\\Otaku-Stream\\templates\\tchat.html.twig");
+        </div><!-- // .c-chat-dialogue -->
+
+
+        \t<script type=\"text/javascript\">
+        \$(document).ready(function(){
+            var conn = new WebSocket('ws://localhost:8080');
+            conn.onopen = function(e) {
+                console.log(\"Connection established!\");        
+            };
+
+            conn.onmessage = function(e) {
+                obj = JSON.parse(e.data);
+               document.getElementById('local').innerHTML = document.getElementById('local').innerHTML+\"<br />\"+'<div class=\"c-chat-dialogue__message\"><div class=\"c-chat-dialogue__message-content\">'+obj.msg+'</div></div>';
+              // document.write(e.data);
+
+\t\t\t   console.log(e.data);\t\t   
+            };
+
+            \$(\"#send\").click(function(){
+                 var msg = \$(\"#msg\").val();
+\t\t        var user = \"moi\";
+                var data = {
+                    user: user,
+                    msg: msg
+                };
+                \$.ajax({
+                    data: {
+                        user: user,
+                        msg: msg
+                    },
+                    type: \"POST\",
+                    url: \"http://localhost/otaku-Stream/public/dbtchat\",
+
+                })
+                document.getElementById('local').innerHTML = document.getElementById('local').innerHTML+'<br /><div class=\"c-chat-dialogue__message c-chat-dialogue__message--self\"><div class=\"c-chat-dialogue__message-content\">'+msg+'</div></div>';
+                conn.send(JSON.stringify(data));
+            })
+        })
+    </script>", "tchat.html.twig", "C:\\xampp\\htdocs\\Otaku-Stream\\templates\\tchat.html.twig");
     }
 }
