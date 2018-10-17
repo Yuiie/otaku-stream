@@ -42,6 +42,8 @@ class AddController extends AbstractController
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
 
+        $categories = $em->getRepository('App:Categorie')->findAll();
+      
 
         $Anime = new Anime();
         $Anime->setDate(new \datetime('now'));
@@ -61,7 +63,16 @@ class AddController extends AbstractController
                         $Anime->setBrochure($fileName);
                         $url_image = $this->generateUrl('index')."uploads/".$fileName;
                         $Anime->setImage($url_image);
-                        
+
+                        ## Add categorie
+                        foreach ($categories as $element => $categorie) 
+                        {    
+                            if (isset($_POST[$categorie->getId()])){
+                                $categorie = $em->getRepository('App:Categorie')->findOneById($categorie->getId());
+                                $Anime->setCategorie($categorie);
+                            }
+                        }
+
                         $em->persist($Anime);
                         $em->flush();
                     }
@@ -69,7 +80,7 @@ class AddController extends AbstractController
             else {
                 return $this->redirect('http://airi.ovh');
             }
-        return $this->render('add/Add-Anime.html.twig', ['form' => $form->createView(), 'message' => $message]);
+        return $this->render('add/Add-Anime.html.twig', ['form' => $form->createView(), 'message' => $message, 'categories' => $categories]);
     }
 
       /**

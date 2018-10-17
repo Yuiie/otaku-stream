@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title>Otaku-Stream</title>
-        <meta name="description" content="Dashboard UI Kit">
+        <meta name="description" content="Otaku-Stream">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Google Font -->
@@ -19,6 +19,8 @@
         <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
     </head>
     <body class="o-page" style="background-color: #524D4C">
+
+        {# left menu #}
         <div class="o-page__sidebar js-page-sidebar">
             <div class="c-sidebar">
                 <a class="c-sidebar__brand" href="{{ path('index') }}">
@@ -243,6 +245,8 @@
         </div><!-- // .o-page__sidebar -->
         
         <div class="o-page__content" style="background-color: #524D4C">
+
+            {# top menu #}
              <header class="c-navbar" style="background-color: #2e333a;border-bottom: 1px solid #b1e1e7;">
 
                 <button class="c-sidebar-toggle js-sidebar-toggle">
@@ -255,17 +259,12 @@
                 <h2 class="c-navbar__title u-mr-auto" style="">Projects</h2>
 
 <!-- Barre de recherche -->
-    <div class="c-dropdown dropdown u-mr-medium u-hidden-down@mobile">
-            <a class="c-notification dropdown-toggle inline" href="#" id="dropdownMenuAlerts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <label class="u-hidden-visually" for="navbar-search-small">Seach</label>
-                    <input class="c-input" id="navbar-search-small" type="text" placeholder="Search">
-            </a>
-
-            <a class="c-notification dropdown-toggle inline" href="#" id="dropdownMenuAlerts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="c-field__icon">
-                        <i class="fa fa-search"></i> 
-                </span> 
-            </a>
+    <div class="c-dropdown dropdown u-mr-medium u-hidden-down@mobile" style="width: 300px">
+        <select class="c-select has-search" id="select2" >
+                            {% for article in listanime %}
+                                <option>{{ article.nom }}</option>
+                            {% endfor %}
+        </select>
     </div>
 
                 <div class="c-dropdown dropdown u-mr-medium">
@@ -338,33 +337,15 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-12 col-xl-9 u-p-zero" style="background-color: #524D4C">
-                        
 
-                    {# block recherche %}{% endblock #}
-                    {# block body_tchat %}{% endblock #}
-                    {% block body_home %}
-                    {% endblock %}
-
-
-
+                        {# affichage des pages #}
+                        {% block body_home %}
+                        {% endblock %}
 
                     </div>
-
-                   
                 </div>
             </div>
-
         </div>
-        {# Recherche 
-{% if app.request.query.get("recherche") is not empty %}
-{{ render(controller(
-        'App\\Controller\\MainController::recherche',
-        { 'nom': app.request.query.get("recherche") }
-    )) }}
-{% endif %}
-        #}
-
-
     </body>
 
          {% include 'tchat.html.twig' with {"message": message } %}

@@ -73,6 +73,17 @@ class AnimeRepository extends ServiceEntityRepository
         return $qb->getQuery()->getResult();
     }
 
+    public function rechercheLetter($nom)
+    {
+     
+        $qb = $this->createQueryBuilder('a');
+         
+        $qb->where('a.nom LIKE :nom')
+                  ->setParameter('nom', $nom.'%');
+                 
+        return $qb->getQuery()->getResult();
+    }
+
     public function findAllPagineEtTrie($page, $nbMaxParPage)
     {
         if (!is_numeric($page)) {

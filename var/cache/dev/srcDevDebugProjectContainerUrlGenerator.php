@@ -30,6 +30,7 @@ class srcDevDebugProjectContainerUrlGenerator extends Symfony\Component\Routing\
         'ma' => array(array(), array('_controller' => 'App\\Controller\\MainController::dkd'), array(), array(array('text', '/tchat')), array(), array()),
         'db tchat' => array(array(), array('_controller' => 'App\\Controller\\MainController::dbTchat'), array(), array(array('text', '/dbtchat')), array(), array()),
         'main' => array(array(), array('_controller' => 'App\\Controller\\MainController::index'), array(), array(array('text', '/')), array(), array()),
+        'animes' => array(array('letter'), array('_controller' => 'App\\Controller\\MainController::HomeAnime'), array(), array(array('variable', '/', '[^/]++', 'letter'), array('text', '/Animes')), array(), array()),
         'anime' => array(array(), array('_controller' => 'App\\Controller\\MainController::Anime'), array(), array(array('text', '/Anime')), array(), array()),
         'fos_user_security_login' => array(array(), array('_controller' => 'fos_user.security.controller:loginAction'), array(), array(array('text', '/login')), array(), array()),
         'fos_user_security_check' => array(array(), array('_controller' => 'fos_user.security.controller:checkAction'), array(), array(array('text', '/login_check')), array(), array()),

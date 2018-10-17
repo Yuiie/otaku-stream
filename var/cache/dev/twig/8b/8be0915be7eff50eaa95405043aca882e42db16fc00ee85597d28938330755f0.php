@@ -34,6 +34,8 @@ class __TwigTemplate_3278e3ace67f3f6e4e486339c0eb8e419ec9cb4d530e9762ccb29a4021d
 
         // line 2
         $context["message"] = (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new Twig_Error_Runtime('Variable "message" does not exist.', 2, $this->source); })());
+        // line 3
+        $context["listanime"] = (isset($context["anime"]) || array_key_exists("anime", $context) ? $context["anime"] : (function () { throw new Twig_Error_Runtime('Variable "anime" does not exist.', 3, $this->source); })());
         // line 1
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
@@ -44,7 +46,7 @@ class __TwigTemplate_3278e3ace67f3f6e4e486339c0eb8e419ec9cb4d530e9762ccb29a4021d
 
     }
 
-    // line 4
+    // line 5
     public function block_stylesheets($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -61,7 +63,7 @@ class __TwigTemplate_3278e3ace67f3f6e4e486339c0eb8e419ec9cb4d530e9762ccb29a4021d
 
     }
 
-    // line 7
+    // line 8
     public function block_body_home($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -70,7 +72,7 @@ class __TwigTemplate_3278e3ace67f3f6e4e486339c0eb8e419ec9cb4d530e9762ccb29a4021d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body_home"));
 
-        // line 8
+        // line 9
         echo "<head>
     <style>
         /* Style the tab */
@@ -115,12 +117,12 @@ class __TwigTemplate_3278e3ace67f3f6e4e486339c0eb8e419ec9cb4d530e9762ccb29a4021d
 
 <center>
 <h1>";
-        // line 51
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new Twig_Error_Runtime('Variable "article" does not exist.', 51, $this->source); })()), "nom", array()), "html", null, true);
+        // line 52
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new Twig_Error_Runtime('Variable "article" does not exist.', 52, $this->source); })()), "nom", array()), "html", null, true);
         echo "<h1>
 <img src=\"";
-        // line 52
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new Twig_Error_Runtime('Variable "article" does not exist.', 52, $this->source); })()), "image", array()), "html", null, true);
+        // line 53
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new Twig_Error_Runtime('Variable "article" does not exist.', 53, $this->source); })()), "image", array()), "html", null, true);
         echo "\" width=\"400\" height=\"200\" class=\"rounded mx-auto d-block\" alt=\"...\">
 
 <div class=\"tab\">
@@ -131,45 +133,45 @@ class __TwigTemplate_3278e3ace67f3f6e4e486339c0eb8e419ec9cb4d530e9762ccb29a4021d
 
 <div id=\"Synopsis\" class=\"tabcontent\">
   <p>";
-        // line 61
-        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new Twig_Error_Runtime('Variable "article" does not exist.', 61, $this->source); })()), "content", array()), "html", null, true);
+        // line 62
+        echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, (isset($context["article"]) || array_key_exists("article", $context) ? $context["article"] : (function () { throw new Twig_Error_Runtime('Variable "article" does not exist.', 62, $this->source); })()), "content", array()), "html", null, true);
         echo "</p>
 </div>
 
 <div id=\"Video\" class=\"tabcontent\">
-";
-        // line 65
+    ";
+        // line 66
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["episode"]) || array_key_exists("episode", $context) ? $context["episode"] : (function () { throw new Twig_Error_Runtime('Variable "episode" does not exist.', 65, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["episode"]) || array_key_exists("episode", $context) ? $context["episode"] : (function () { throw new Twig_Error_Runtime('Variable "episode" does not exist.', 66, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["episodes"]) {
-            // line 66
-            echo "    <div class=\"col\">
-        <div class=\"card\" style=\"background-color:#ccccff; margin-top: 10px;\">
-           <div class=\"embed-responsive embed-responsive-16by9\">
-                <embed class=\"embed-responsive-item\" width=\"640\" height=\"480\" src=\"";
-            // line 69
+            // line 67
+            echo "        <div class=\"col\">
+            <div class=\"card\" style=\"background-color:#ccccff; margin-top: 10px;\">
+            <div class=\"embed-responsive embed-responsive-16by9\">
+                    <embed class=\"embed-responsive-item\" width=\"640\" height=\"480\" src=\"";
+            // line 70
             echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["episodes"], "url", array()), "html", null, true);
             echo "\" frameborder=\"0\" allowfullscreen></embed>
+                </div>
             </div>
         </div>
-    </div>
-</div>
+    ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['episodes'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 75
+        echo "</div>
 
 <div id=\"Commentaire\" class=\"tabcontent\">
   <h3>Paris</h3>
   <p>Paris is the capital of France.</p> 
 </div>
 </center>
-    ";
-        }
-        $_parent = $context['_parent'];
-        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['episodes'], $context['_parent'], $context['loop']);
-        $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 81
-        echo "
+
 
 ";
-        // line 84
+        // line 85
         echo "<script>
     function openCity(evt, cityName) {
         var i, tabcontent, tablinks;
@@ -207,13 +209,14 @@ class __TwigTemplate_3278e3ace67f3f6e4e486339c0eb8e419ec9cb4d530e9762ccb29a4021d
 
     public function getDebugInfo()
     {
-        return array (  173 => 84,  169 => 81,  151 => 69,  146 => 66,  142 => 65,  135 => 61,  123 => 52,  119 => 51,  74 => 8,  65 => 7,  48 => 4,  38 => 1,  36 => 2,  15 => 1,);
+        return array (  175 => 85,  164 => 75,  153 => 70,  148 => 67,  144 => 66,  137 => 62,  125 => 53,  121 => 52,  76 => 9,  67 => 8,  50 => 5,  40 => 1,  38 => 3,  36 => 2,  15 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Twig_Source("{% extends 'native.html.twig' %}
 {% set message = message %}
+{% set listanime = anime %}
 
 {% block stylesheets %}
 {% endblock %}
@@ -276,14 +279,15 @@ class __TwigTemplate_3278e3ace67f3f6e4e486339c0eb8e419ec9cb4d530e9762ccb29a4021d
 </div>
 
 <div id=\"Video\" class=\"tabcontent\">
-{% for episodes in episode %}
-    <div class=\"col\">
-        <div class=\"card\" style=\"background-color:#ccccff; margin-top: 10px;\">
-           <div class=\"embed-responsive embed-responsive-16by9\">
-                <embed class=\"embed-responsive-item\" width=\"640\" height=\"480\" src=\"{{ episodes.url }}\" frameborder=\"0\" allowfullscreen></embed>
+    {% for episodes in episode %}
+        <div class=\"col\">
+            <div class=\"card\" style=\"background-color:#ccccff; margin-top: 10px;\">
+            <div class=\"embed-responsive embed-responsive-16by9\">
+                    <embed class=\"embed-responsive-item\" width=\"640\" height=\"480\" src=\"{{ episodes.url }}\" frameborder=\"0\" allowfullscreen></embed>
+                </div>
             </div>
         </div>
-    </div>
+    {% endfor %}
 </div>
 
 <div id=\"Commentaire\" class=\"tabcontent\">
@@ -291,7 +295,6 @@ class __TwigTemplate_3278e3ace67f3f6e4e486339c0eb8e419ec9cb4d530e9762ccb29a4021d
   <p>Paris is the capital of France.</p> 
 </div>
 </center>
-    {% endfor %}
 
 
 {# Tab #}

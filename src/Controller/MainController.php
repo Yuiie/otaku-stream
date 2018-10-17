@@ -117,21 +117,46 @@ class MainController extends AbstractController
         TchatClass::Tchat($request);
  
         $db = $this->getDoctrine()->getManager();
+
         $message = $db->getRepository('App:Tchat')->findAll();
+
+        ## Search Bar
+        $anime = $db->getRepository('App:Anime')->findBy(
+            array(),
+            array('nom' => 'ASC')
+        );
+
         $episode = $db->getRepository('App:Episode')->findByPage(
             $request->query->getInt('page', 1),
             6
         );
-        /*
-        $count = $this->CountTime($request);
-        if ($count == 1) {
-            $message = $db->getRepository('App:Tchat')->findAll();
-            $count = 0;
-        }
-        */
 
         return $this->render('main/home.html.twig', [
-            'controller_name' => 'MainController', 'listarticle' => $episode, 'message' => $message
+            'controller_name' => 'MainController', 'listarticle' => $episode, 'message' => $message, 'anime' => $anime
+        ]);
+    }
+
+    /**
+     * @Route("/Animes/{letter}", name="animes")
+     */
+    public function HomeAnime(Request $request)
+    {
+        TchatClass::Tchat($request);
+ 
+        $db = $this->getDoctrine()->getManager();
+
+        $message = $db->getRepository('App:Tchat')->findAll();
+        $anime = $db->getRepository('App:Anime')->findBy(
+            array(),
+            array('nom' => 'ASC')
+        );
+        
+        if (isset($_POST['letter']) && $_POST['letter'] != NULL) {
+            $anime = $db->getRepository('App:Anime')->recherche($nom);
+        }
+
+        return $this->render('main/All-Anime.html.twig', [
+            'listanime' => $anime, 'message' => $message
         ]);
     }
 
@@ -151,6 +176,14 @@ class MainController extends AbstractController
         ->getRepository('App:Anime')
         ->findOneById($id)
       ;
+
+        ## Search Bar
+        $anime = $db->getRepository('App:Anime')->findBy(
+            array(),
+            array('nom' => 'ASC')
+        );
+
+
       $episode = $this->getDoctrine()
         ->getManager()
         ->getRepository('App:Video')
@@ -158,12 +191,15 @@ class MainController extends AbstractController
       ;
       
        // $article = $this->getDoctrine()->getRepository(Anime::class)->findOneByIds($id);
-        return $this->render('main/Anime.html.twig', array('id' => $id, 'article' => $article, 'episode' => $episode, 'message' => $message));
+        return $this->render('main/Anime.html.twig', array('id' => $id, 'article' => $article, 'episode' => $episode, 'message' => $message, 'anime' => $anime));
     }
 
+    /**
+     *  @Route("/recherche", name="recherche")
+     */
     public function recherche($nom)
     {
-    $db = $this->getDoctrine()->getManager();
+        $db = $this->getDoctrine()->getManager();
 
         $episode = $db->getRepository('App:Anime')->recherche($nom);
         return $this->render('main/recherche.html.twig', ['listarticle' => $episode

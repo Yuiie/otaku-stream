@@ -33,7 +33,7 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
         <meta charset=\"utf-8\">
         <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\">
         <title>Otaku-Stream</title>
-        <meta name=\"description\" content=\"Dashboard UI Kit\">
+        <meta name=\"description\" content=\"Otaku-Stream\">
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
 
         <!-- Google Font -->
@@ -54,14 +54,17 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
         echo "\" rel=\"stylesheet\">
     </head>
     <body class=\"o-page\" style=\"background-color: #524D4C\">
-        <div class=\"o-page__sidebar js-page-sidebar\">
+
+        ";
+        // line 24
+        echo "        <div class=\"o-page__sidebar js-page-sidebar\">
             <div class=\"c-sidebar\">
                 <a class=\"c-sidebar__brand\" href=\"";
-        // line 24
+        // line 26
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
                     <img class=\"c-sidebar__brand-img\" src=\"";
-        // line 25
+        // line 27
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/logo.png"), "html", null, true);
         echo "\" alt=\"Logo\"> Otaku-Stream
                 </a>
@@ -69,7 +72,7 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
                 <ul class=\"c-sidebar__list\">
                     <li class=\"c-sidebar__item\">
                         <a class=\"c-sidebar__link\" href=\"";
-        // line 30
+        // line 32
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("index");
         echo "\">
                             <i class=\"fa fa-home u-mr-xsmall\"></i>Acceuil
@@ -227,7 +230,7 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
                 <ul class=\"c-sidebar__list\">
                     <li class=\"c-sidebar__item\">
                         <a class=\"c-sidebar__link\" target=\"_blank\" href=\"";
-        // line 185
+        // line 187
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
         echo "\">
                             <i class=\"fa fa-user-circle u-mr-xsmall\"></i>Account Details
@@ -242,7 +245,7 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
 
                     <li class=\"c-sidebar__item\">
                         <a class=\"c-sidebar__link\" target=\"_blank\" href=\"";
-        // line 197
+        // line 199
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
         echo "\">
                             <i class=\"fa fa-user-plus u-mr-xsmall\"></i>Register
@@ -263,7 +266,7 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
 
                     <li class=\"c-sidebar__item\">
                         <a class=\"c-sidebar__link\" href=\"";
-        // line 215
+        // line 217
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
         echo "\">
                             <i class=\"fa fa-sign-in u-mr-xsmall\"></i>Login
@@ -296,7 +299,10 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
         </div><!-- // .o-page__sidebar -->
         
         <div class=\"o-page__content\" style=\"background-color: #524D4C\">
-             <header class=\"c-navbar\" style=\"background-color: #2e333a;border-bottom: 1px solid #b1e1e7;\">
+
+            ";
+        // line 250
+        echo "             <header class=\"c-navbar\" style=\"background-color: #2e333a;border-bottom: 1px solid #b1e1e7;\">
 
                 <button class=\"c-sidebar-toggle js-sidebar-toggle\">
                     <span class=\"c-sidebar-toggle__bar\"></span>
@@ -308,17 +314,24 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
                 <h2 class=\"c-navbar__title u-mr-auto\" style=\"\">Projects</h2>
 
 <!-- Barre de recherche -->
-    <div class=\"c-dropdown dropdown u-mr-medium u-hidden-down@mobile\">
-            <a class=\"c-notification dropdown-toggle inline\" href=\"#\" id=\"dropdownMenuAlerts\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                    <label class=\"u-hidden-visually\" for=\"navbar-search-small\">Seach</label>
-                    <input class=\"c-input\" id=\"navbar-search-small\" type=\"text\" placeholder=\"Search\">
-            </a>
-
-            <a class=\"c-notification dropdown-toggle inline\" href=\"#\" id=\"dropdownMenuAlerts\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                <span class=\"c-field__icon\">
-                        <i class=\"fa fa-search\"></i> 
-                </span> 
-            </a>
+    <div class=\"c-dropdown dropdown u-mr-medium u-hidden-down@mobile\" style=\"width: 300px\">
+        <select class=\"c-select has-search\" id=\"select2\" >
+                            ";
+        // line 264
+        $context['_parent'] = $context;
+        $context['_seq'] = twig_ensure_traversable((isset($context["listanime"]) || array_key_exists("listanime", $context) ? $context["listanime"] : (function () { throw new Twig_Error_Runtime('Variable "listanime" does not exist.', 264, $this->source); })()));
+        foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
+            // line 265
+            echo "                                <option>";
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "nom", array()), "html", null, true);
+            echo "</option>
+                            ";
+        }
+        $_parent = $context['_parent'];
+        unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
+        $context = array_intersect_key($context, $_parent) + $_parent;
+        // line 267
+        echo "        </select>
     </div>
 
                 <div class=\"c-dropdown dropdown u-mr-medium\">
@@ -379,14 +392,14 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
                 <div class=\"c-dropdown dropdown\">
                     <a  class=\"c-avatar c-avatar--xsmall has-dropdown dropdown-toggle\" href=\"#\" id=\"dropdwonMenuAvatar\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
                         <img class=\"c-avatar__img\" src=\"";
-        // line 328
+        // line 327
         echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("assets/img/avatar-72.jpg"), "html", null, true);
         echo "\" alt=\"User's Profile Picture\">
                     </a>
 
                     <div class=\"c-dropdown__menu dropdown-menu dropdown-menu-right\" aria-labelledby=\"dropdwonMenuAvatar\">
                         <a class=\"c-dropdown__item dropdown-item\" href=\"";
-        // line 332
+        // line 331
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("login");
         echo "\">Edit Profile</a>
                         <a class=\"c-dropdown__item dropdown-item\" href=\"#\">View Activity</a>
@@ -397,36 +410,23 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
             <div class=\"container-fluid\">
                 <div class=\"row\">
                     <div class=\"col-12 col-xl-9 u-p-zero\" style=\"background-color: #524D4C\">
-                        
 
-                    ";
-        // line 344
-        echo "                    ";
-        // line 345
-        echo "                    ";
+                        ";
+        // line 342
+        echo "                        ";
         $this->displayBlock('body_home', $context, $blocks);
-        // line 347
+        // line 344
         echo "
-
-
-
                     </div>
-
-                   
                 </div>
             </div>
-
         </div>
-        ";
-        // line 366
-        echo "
-
     </body>
 
          ";
-        // line 370
-        $this->loadTemplate("tchat.html.twig", "native.html.twig", 370)->display(array_merge($context, array("message" => (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new Twig_Error_Runtime('Variable "message" does not exist.', 370, $this->source); })()))));
-        // line 371
+        // line 351
+        $this->loadTemplate("tchat.html.twig", "native.html.twig", 351)->display(array_merge($context, array("message" => (isset($context["message"]) || array_key_exists("message", $context) ? $context["message"] : (function () { throw new Twig_Error_Runtime('Variable "message" does not exist.', 351, $this->source); })()))));
+        // line 352
         echo "</html>";
         
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
@@ -436,7 +436,7 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
 
     }
 
-    // line 345
+    // line 342
     public function block_body_home($context, array $blocks = array())
     {
         $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
@@ -445,8 +445,8 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body_home"));
 
-        // line 346
-        echo "                    ";
+        // line 343
+        echo "                        ";
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -467,7 +467,7 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
 
     public function getDebugInfo()
     {
-        return array (  449 => 346,  440 => 345,  430 => 371,  428 => 370,  422 => 366,  409 => 347,  406 => 345,  404 => 344,  390 => 332,  383 => 328,  267 => 215,  246 => 197,  231 => 185,  73 => 30,  65 => 25,  61 => 24,  53 => 19,  49 => 18,  30 => 1,);
+        return array (  449 => 343,  440 => 342,  430 => 352,  428 => 351,  419 => 344,  416 => 342,  403 => 331,  396 => 327,  334 => 267,  325 => 265,  321 => 264,  305 => 250,  270 => 217,  249 => 199,  234 => 187,  76 => 32,  68 => 27,  64 => 26,  60 => 24,  53 => 19,  49 => 18,  30 => 1,);
     }
 
     public function getSourceContext()
@@ -478,7 +478,7 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
         <meta charset=\"utf-8\">
         <meta http-equiv=\"x-ua-compatible\" content=\"ie=edge\">
         <title>Otaku-Stream</title>
-        <meta name=\"description\" content=\"Dashboard UI Kit\">
+        <meta name=\"description\" content=\"Otaku-Stream\">
         <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\">
 
         <!-- Google Font -->
@@ -493,6 +493,8 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
         <link href=\"{{ asset('css/main.min.css') }}\" rel=\"stylesheet\">
     </head>
     <body class=\"o-page\" style=\"background-color: #524D4C\">
+
+        {# left menu #}
         <div class=\"o-page__sidebar js-page-sidebar\">
             <div class=\"c-sidebar\">
                 <a class=\"c-sidebar__brand\" href=\"{{ path('index') }}\">
@@ -717,6 +719,8 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
         </div><!-- // .o-page__sidebar -->
         
         <div class=\"o-page__content\" style=\"background-color: #524D4C\">
+
+            {# top menu #}
              <header class=\"c-navbar\" style=\"background-color: #2e333a;border-bottom: 1px solid #b1e1e7;\">
 
                 <button class=\"c-sidebar-toggle js-sidebar-toggle\">
@@ -729,17 +733,12 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
                 <h2 class=\"c-navbar__title u-mr-auto\" style=\"\">Projects</h2>
 
 <!-- Barre de recherche -->
-    <div class=\"c-dropdown dropdown u-mr-medium u-hidden-down@mobile\">
-            <a class=\"c-notification dropdown-toggle inline\" href=\"#\" id=\"dropdownMenuAlerts\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                    <label class=\"u-hidden-visually\" for=\"navbar-search-small\">Seach</label>
-                    <input class=\"c-input\" id=\"navbar-search-small\" type=\"text\" placeholder=\"Search\">
-            </a>
-
-            <a class=\"c-notification dropdown-toggle inline\" href=\"#\" id=\"dropdownMenuAlerts\" data-toggle=\"dropdown\" aria-haspopup=\"true\" aria-expanded=\"false\">
-                <span class=\"c-field__icon\">
-                        <i class=\"fa fa-search\"></i> 
-                </span> 
-            </a>
+    <div class=\"c-dropdown dropdown u-mr-medium u-hidden-down@mobile\" style=\"width: 300px\">
+        <select class=\"c-select has-search\" id=\"select2\" >
+                            {% for article in listanime %}
+                                <option>{{ article.nom }}</option>
+                            {% endfor %}
+        </select>
     </div>
 
                 <div class=\"c-dropdown dropdown u-mr-medium\">
@@ -812,33 +811,15 @@ class __TwigTemplate_969c3ef9ebf703cd09cd0a9a121e44b508a034cce7fed4c4223f04d986d
             <div class=\"container-fluid\">
                 <div class=\"row\">
                     <div class=\"col-12 col-xl-9 u-p-zero\" style=\"background-color: #524D4C\">
-                        
 
-                    {# block recherche %}{% endblock #}
-                    {# block body_tchat %}{% endblock #}
-                    {% block body_home %}
-                    {% endblock %}
-
-
-
+                        {# affichage des pages #}
+                        {% block body_home %}
+                        {% endblock %}
 
                     </div>
-
-                   
                 </div>
             </div>
-
         </div>
-        {# Recherche 
-{% if app.request.query.get(\"recherche\") is not empty %}
-{{ render(controller(
-        'App\\\\Controller\\\\MainController::recherche',
-        { 'nom': app.request.query.get(\"recherche\") }
-    )) }}
-{% endif %}
-        #}
-
-
     </body>
 
          {% include 'tchat.html.twig' with {\"message\": message } %}

@@ -136,28 +136,31 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         $matchedPathinfo = $pathinfo;
         $regexList = array(
             0 => '{^(?'
+                    .'|/A(?'
+                        .'|nime(?'
+                            .'|s/([^/]++)(*:29)'
+                            .'|/(\\d+)/([^/]++)(*:51)'
+                        .')'
+                        .'|rticle/([^/]++)(*:74)'
+                    .')'
                     .'|/re(?'
-                        .'|gister/confirm/([^/]++)(*:36)'
-                        .'|setting/reset/([^/]++)(*:65)'
+                        .'|gister/confirm/([^/]++)(*:111)'
+                        .'|setting/reset/([^/]++)(*:141)'
                     .')'
                     .'|/_(?'
-                        .'|error/(\\d+)(?:\\.([^/]++))?(*:104)'
-                        .'|wdt/([^/]++)(*:124)'
+                        .'|error/(\\d+)(?:\\.([^/]++))?(*:181)'
+                        .'|wdt/([^/]++)(*:201)'
                         .'|profiler/([^/]++)(?'
                             .'|/(?'
-                                .'|search/results(*:170)'
-                                .'|router(*:184)'
+                                .'|search/results(*:247)'
+                                .'|router(*:261)'
                                 .'|exception(?'
-                                    .'|(*:204)'
-                                    .'|\\.css(*:217)'
+                                    .'|(*:281)'
+                                    .'|\\.css(*:294)'
                                 .')'
                             .')'
-                            .'|(*:227)'
+                            .'|(*:304)'
                         .')'
-                    .')'
-                    .'|/A(?'
-                        .'|nime/(\\d+)/([^/]++)(*:261)'
-                        .'|rticle/([^/]++)(*:284)'
                     .')'
                 .')$}sD',
         );
@@ -167,17 +170,18 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 switch ($m = (int) $matches['MARK']) {
                     default:
                         $routes = array(
-                            36 => array(array('_route' => 'fos_user_registration_confirm', '_controller' => 'fos_user.registration.controller:confirmAction'), array('token'), array('GET' => 0), null),
-                            65 => array(array('_route' => 'fos_user_resetting_reset', '_controller' => 'fos_user.resetting.controller:resetAction'), array('token'), array('GET' => 0, 'POST' => 1), null),
-                            104 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null),
-                            124 => array(array('_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'), array('token'), null, null),
-                            170 => array(array('_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'), array('token'), null, null),
-                            184 => array(array('_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'), array('token'), null, null),
-                            204 => array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null),
-                            217 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
-                            227 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
-                            261 => array(array('_route' => 'Anime', '_controller' => 'App\\Controller\\MainController::Anime', 'id' => 1), array('id', 'ep'), null, null),
-                            284 => array(array('_route' => 'Article', '_controller' => 'App\\Controller\\MainController::Article'), array('page'), null, null),
+                            29 => array(array('_route' => 'animes', '_controller' => 'App\\Controller\\MainController::HomeAnime'), array('letter'), null, null),
+                            51 => array(array('_route' => 'Anime', '_controller' => 'App\\Controller\\MainController::Anime', 'id' => 1), array('id', 'ep'), null, null),
+                            74 => array(array('_route' => 'Article', '_controller' => 'App\\Controller\\MainController::Article'), array('page'), null, null),
+                            111 => array(array('_route' => 'fos_user_registration_confirm', '_controller' => 'fos_user.registration.controller:confirmAction'), array('token'), array('GET' => 0), null),
+                            141 => array(array('_route' => 'fos_user_resetting_reset', '_controller' => 'fos_user.resetting.controller:resetAction'), array('token'), array('GET' => 0, 'POST' => 1), null),
+                            181 => array(array('_route' => '_twig_error_test', '_controller' => 'twig.controller.preview_error::previewErrorPageAction', '_format' => 'html'), array('code', '_format'), null, null),
+                            201 => array(array('_route' => '_wdt', '_controller' => 'web_profiler.controller.profiler::toolbarAction'), array('token'), null, null),
+                            247 => array(array('_route' => '_profiler_search_results', '_controller' => 'web_profiler.controller.profiler::searchResultsAction'), array('token'), null, null),
+                            261 => array(array('_route' => '_profiler_router', '_controller' => 'web_profiler.controller.router::panelAction'), array('token'), null, null),
+                            281 => array(array('_route' => '_profiler_exception', '_controller' => 'web_profiler.controller.exception::showAction'), array('token'), null, null),
+                            294 => array(array('_route' => '_profiler_exception_css', '_controller' => 'web_profiler.controller.exception::cssAction'), array('token'), null, null),
+                            304 => array(array('_route' => '_profiler', '_controller' => 'web_profiler.controller.profiler::panelAction'), array('token'), null, null),
                         );
 
                         list($ret, $vars, $requiredMethods, $requiredSchemes) = $routes[$m];
@@ -203,7 +207,7 @@ class srcDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                         return $ret;
                 }
 
-                if (284 === $m) {
+                if (304 === $m) {
                     break;
                 }
                 $regex = substr_replace($regex, 'F', $m - $offset, 1 + strlen($m));
