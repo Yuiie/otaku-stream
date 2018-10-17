@@ -43,7 +43,7 @@ class AddController extends AbstractController
         $message = $em->getRepository('App:Tchat')->findAll();
 
         ## Search Bar
-        $anime = $db->getRepository('App:Anime')->findBy(
+        $anime = $em->getRepository('App:Anime')->findBy(
             array(),
             array('nom' => 'ASC')
         );
@@ -102,7 +102,7 @@ class AddController extends AbstractController
         $message = $em->getRepository('App:Tchat')->findAll();
 
         ## Search Bar
-        $anime = $db->getRepository('App:Anime')->findBy(
+        $anime = $em->getRepository('App:Anime')->findBy(
             array(),
             array('nom' => 'ASC')
         );
@@ -144,7 +144,7 @@ class AddController extends AbstractController
         $message = $em->getRepository('App:Tchat')->findAll();
 
         ## Search Bar
-        $anime = $db->getRepository('App:Anime')->findBy(
+        $anime = $em->getRepository('App:Anime')->findBy(
             array(),
             array('nom' => 'ASC')
         );
