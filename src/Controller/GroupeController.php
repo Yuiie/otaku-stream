@@ -26,6 +26,12 @@ class GroupeController extends AbstractController
 
         $db = $this->getDoctrine()->getManager();
 
+        ## Search Bar
+        $anime = $em->getRepository('App:Anime')->findBy(
+            array(),
+            array('nom' => 'ASC')
+        );
+
         $group = $db->getRepository('App:Groupe')->findAll();
         $my_group = $db->getRepository('App:GroupeMember')->findByMembre($id);
         return $this->render('groupe/group.html.twig', [
@@ -42,6 +48,13 @@ class GroupeController extends AbstractController
         $Groupe = new Groupe();
         $form = $this->createForm(CreateGroupeType::class, $Groupe);
 
+
+        ## Search Bar
+        $anime = $em->getRepository('App:Anime')->findBy(
+            array(),
+            array('nom' => 'ASC')
+        );
+
         // verifie que l'utillisateur est bien connecter et recupere les data
         if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
         {
@@ -50,6 +63,7 @@ class GroupeController extends AbstractController
             {
                 $bdd = $this->container->get('security.token_storage')->getToken()->getUser();
                 $id = $bdd->getId();
+
                 
                 $id = $this->getDoctrine()->getManager()->getRepository('App:User')->findOneById($id);
                 $Groupe->setMember($id);
@@ -83,6 +97,13 @@ class GroupeController extends AbstractController
         $em = $this->getDoctrine()->getManager();
         $Groupe = new GroupeMember();
         $form = $this->createForm(GroupMemberType::class, $Groupe);
+
+
+        ## Search Bar
+        $anime = $em->getRepository('App:Anime')->findBy(
+            array(),
+            array('nom' => 'ASC')
+        );
 
         // verifie que l'utillisateur est bien connecter et recupere les data
         if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
@@ -120,6 +141,11 @@ class GroupeController extends AbstractController
         $i = 0;
 
 
+        ## Search Bar
+        $anime = $em->getRepository('App:Anime')->findBy(
+            array(),
+            array('nom' => 'ASC')
+        );
         // verifie que l'utillisateur est bien connecter et recupere les data
         if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
         {

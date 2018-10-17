@@ -42,6 +42,12 @@ class AddController extends AbstractController
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
 
+        ## Search Bar
+        $anime = $db->getRepository('App:Anime')->findBy(
+            array(),
+            array('nom' => 'ASC')
+        );
+
         $categories = $em->getRepository('App:Categorie')->findAll();
       
 
@@ -80,7 +86,7 @@ class AddController extends AbstractController
             else {
                 return $this->redirect('http://airi.ovh');
             }
-        return $this->render('add/Add-Anime.html.twig', ['form' => $form->createView(), 'message' => $message, 'categories' => $categories]);
+        return $this->render('add/Add-Anime.html.twig', ['form' => $form->createView(), 'message' => $message, 'categories' => $categories, 'anime' => $anime]);
     }
 
       /**
@@ -94,6 +100,12 @@ class AddController extends AbstractController
         ## tchat
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
+
+        ## Search Bar
+        $anime = $db->getRepository('App:Anime')->findBy(
+            array(),
+            array('nom' => 'ASC')
+        );
 
         ## Check Connexion
         if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
@@ -117,7 +129,7 @@ class AddController extends AbstractController
             else {
                 return $this->redirect('http://airi.ovh');
             }
-        return $this->render('add/Add-Episode.html.twig', ['form' => $form->createView(), 'message' => $message]);
+        return $this->render('add/Add-Episode.html.twig', ['form' => $form->createView(), 'message' => $message, 'anime' => $anime]);
     }
 
     /**
@@ -130,6 +142,12 @@ class AddController extends AbstractController
         ## Tchat
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
+
+        ## Search Bar
+        $anime = $db->getRepository('App:Anime')->findBy(
+            array(),
+            array('nom' => 'ASC')
+        );
 
 
         $video = new Video();
@@ -153,6 +171,6 @@ class AddController extends AbstractController
             else {
                 return $this->redirect('http://airi.ovh');
             }
-        return $this->render('add/add-video.html.twig', ['form' => $form->createView(), 'message' => $message]);
+        return $this->render('add/add-video.html.twig', ['form' => $form->createView(), 'message' => $message, 'anime' => $anime]);
     }
 }
