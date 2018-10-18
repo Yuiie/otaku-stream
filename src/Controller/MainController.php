@@ -87,6 +87,14 @@ class MainController extends AbstractController
         return $this->render('index.html.twig', ['message' => $message]);
     }
 
+     /**
+     * @Route("/carousel", name="carousel")
+     */
+    public function carousel(Request $request)
+    {
+        return $this->render('carousel.html.twig');
+    }
+
        /**
      * @Route("/dbtchat", name="db tchat")
      */
