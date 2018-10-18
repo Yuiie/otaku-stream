@@ -2,6 +2,8 @@
 {% set message = message %}
 {% set listanime = anime %}
 
+{% block body_home %}
+{% include 'carousel.html.twig' %}
 {% block stylesheets %}
             <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
             <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
@@ -9,11 +11,7 @@
             <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
             <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
             <link rel="stylesheet" href="css/main.min.css">
-            
 {% endblock %}
-
-{% block body_home %}
-{% include 'carousel.html.twig' %}
 
      <div class="row u-m-small">
      {% for article in listarticle %}
