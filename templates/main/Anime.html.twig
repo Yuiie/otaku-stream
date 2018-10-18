@@ -45,13 +45,69 @@
             border-top: none;
             background-color: white;
         }
+
+        .content{
+            margin: 0;
+        }
+        p{
+            display: inline;
+            padding-right: 10px;
+            font-size: 0.6em;
+        }
+        a{
+            font-size: 0.5em;
+        }
+        p, h1, a{
+            color: white;
+        }
+
+        th, td {
+    border-bottom: 1px solid #ddd;
+}
     </style>
 </head>
 
 <center>
 <h1>{{ article.nom }}<h1>
-<img src="{{ article.image }}" width="400" height="200" class="rounded mx-auto d-block" alt="...">
-
+<div class="row">
+    <div class="col-lg">
+        <img src="{{ article.image }}" style="width: 450px;height:300px;" class="rounded mx-auto d-block" alt="...">
+    </div>
+    <div class="col-lg">
+        <table>
+            <tr style="padding: 0;margin: 0">
+                <td>
+                    <p>Titre :</p>
+                    <a>{{ article.nom }}</a>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Genre :</p>
+                    {% for categories in categorie %}
+                        <a href="#">{{categories.categorie}},</a>
+                    {% endfor %}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <p>Date de sortie :</p>
+                    <a>{{ article.date|date("m/d/Y") }}</a>
+                </td>
+            </tr>
+            <tr>
+                    
+            </tr>
+        </table>
+        <div style="font-size: 0.5rem;display: inline">
+            <i class="fa fa-heart fa-3x"></i>
+        </div>
+        <a style="padding-left: 6px;">Ajouter à mes favoris</a>
+    </div>
+</div>
+<div class="content" style="background-color: #151411">
+  <p style="font-size:0.47em">{{ article.content }}</p>
+</div>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Synopsis')">Synopsis</button>
   <button class="tablinks" onclick="openCity(event, 'Video')">Video</button>
@@ -59,7 +115,7 @@
 </div>
 
 <div id="Synopsis" class="tabcontent">
-  <p>{{ article.content }}</p>
+  <p style="color:black;font-size:0.36em">{{ article.content }}</p>
 </div>
 
 <div id="Video" class="tabcontent">

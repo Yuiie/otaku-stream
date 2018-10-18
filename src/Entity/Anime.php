@@ -62,6 +62,11 @@ class Anime
      */
     private $categorie;
 
+    /**
+     * @ORM\Column(type="datetime", nullable=true)
+     */
+    private $date_sortie;
+
     public function __construct()
     {
         $this->videos = new ArrayCollection();
@@ -213,6 +218,18 @@ class Anime
         if ($this->categorie->contains($categorie)) {
             $this->categorie->removeElement($categorie);
         }
+
+        return $this;
+    }
+
+    public function getDateSortie(): ?\DateTimeInterface
+    {
+        return $this->date_sortie;
+    }
+
+    public function setDateSortie(?\DateTimeInterface $date_sortie): self
+    {
+        $this->date_sortie = $date_sortie;
 
         return $this;
     }

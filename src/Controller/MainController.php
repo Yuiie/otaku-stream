@@ -171,12 +171,13 @@ class MainController extends AbstractController
         $message = $db->getRepository('App:Tchat')->findAll();
 
         // afficher l'anime en fonction de son id
-        $article = $this->getDoctrine()
+        $manga = $this->getDoctrine()
         ->getManager()
         ->getRepository('App:Anime')
         ->findOneById($id)
       ;
 
+        $categorie = $manga->getCategorie($manga);
         ## Search Bar
         $anime = $db->getRepository('App:Anime')->findBy(
             array(),
@@ -189,9 +190,8 @@ class MainController extends AbstractController
         ->getRepository('App:Video')
         ->findByEp($id, $ep)
       ;
-      
-       // $article = $this->getDoctrine()->getRepository(Anime::class)->findOneByIds($id);
-        return $this->render('main/Anime.html.twig', array('id' => $id, 'article' => $article, 'episode' => $episode, 'message' => $message, 'anime' => $anime));
+        return $this->render('main/Anime.html.twig', array('id' => $id, 'article' => $manga,
+                                'episode' => $episode, 'message' => $message, 'anime' => $anime, 'categorie' => $categorie));
     }
 
     /**
