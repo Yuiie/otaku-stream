@@ -3,6 +3,7 @@
 {% set listanime = anime %}
 
 {% block stylesheets %}
+    {{ parent() }}
 {% endblock %}
 
 {% block body_home %}
@@ -136,6 +137,7 @@
 </div>
 </center>
 
+{% include 'carousel-episode.html.twig' %}
 
 {# Tab #}
 <script>

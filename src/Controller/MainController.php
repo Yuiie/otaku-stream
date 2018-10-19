@@ -185,6 +185,8 @@ class MainController extends AbstractController
         ->findOneById($id)
       ;
 
+        $carousel = $db->getRepository('App:Episode')->findByAnime($id);
+
         $categorie = $manga->getCategorie($manga);
         ## Search Bar
         $anime = $db->getRepository('App:Anime')->findBy(
@@ -199,7 +201,8 @@ class MainController extends AbstractController
         ->findByEp($id, $ep)
       ;
         return $this->render('main/Anime.html.twig', array('id' => $id, 'article' => $manga,
-                                'episode' => $episode, 'message' => $message, 'anime' => $anime, 'categorie' => $categorie));
+                                'episode' => $episode, 'message' => $message, 'anime' => $anime, 'categorie' => $categorie,
+                            'carousel' => $carousel));
     }
 
     /**

@@ -3,11 +3,12 @@
 {% set listanime = anime %}
 
 
-{% block stylesheets %}
- {{ parent() }}
-{% endblock %}
 {% block body_home %}
-{% include 'carousel.html.twig' %}
+
+    {% include 'carousel.html.twig' %}
+    {% block stylesheets %}
+            {{ parent() }}
+    {% endblock %}
 
      <div class="row u-m-small">
      {% for article in listarticle %}
@@ -44,6 +45,4 @@
         {% block js %}
             {{ parent() }}
         {% endblock %}
-    
-
 {% endblock %}
