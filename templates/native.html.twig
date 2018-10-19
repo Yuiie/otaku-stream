@@ -8,15 +8,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <!-- Google Font -->
-        <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
 
         <!-- Favicon -->
         <link rel="apple-touch-icon" href="apple-touch-icon.png">
         <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
 
         <!-- Stylesheet -->
-        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/main.min.css') }}" rel="stylesheet">
+        <link href="http://localhost/otaku-Stream/public/css/main.min.css" rel="stylesheet">
+
+        {% block stylesheets %}
+                            <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,600" rel="stylesheet">
+        {% endblock %}
     </head>
     <body class="o-page" style="background-color: #524D4C">
 
@@ -339,6 +341,7 @@
                     <div style="background-color: #524D4C;width: 100%">
                         {# <div class="col-12 col-xl-9 u-p-zero" style="background-color: #524D4C"> #}
                         {# affichage des pages #}
+                        
                         {% block body_home %}
                         {% endblock %}
 
@@ -347,6 +350,10 @@
             </div>
         </div>
     </body>
-
+        {% block js %}
+                            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+                            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+                            <script src="http://localhost/otaku-Stream/public/js/main.min.js"></script>
+        {% endblock %}
          {% include 'tchat.html.twig' with {"message": message } %}
 </html>
