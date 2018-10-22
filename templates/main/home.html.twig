@@ -16,18 +16,15 @@
 
                                 <div class="c-project-card u-mb-medium">
                                     <center>
-                                    <img class="img-fluid" src="{{ article.anime.image }}" style="width: 400px; height: 210px;" alt="About the image">
+                                    <!-- <img class="img-fluid" src="{{ article.anime.image }}" style="width: 400px; height: 210px;" alt="About the image">-->
                                     </center>
                                     <div class="c-project-card__content">
-                                        <div class="c-project-card__head">
-                                            <h4 class="c-project-card__title"><a class="nav-item" href="{{ path('Anime', { 'id': article.anime.id , 'ep': article.episode }) }}">{{ article.anime.nom }} {{ article.episode }}</a><span class="c-badge c-badge--success c-badge--xsmall u-ml-xsmall">New</span></h4>
-                                            <p class="c-project-card__info">Gourmet | Last Update: 29 Dec 2017</p>
+                                        <div class="c-project-card__head" style="min-height:150px;background-image: url(uploads/{{ article.anime.brochure }});background-size: cover;background-repeat:no-repeat;">
                                         </div>
-                                        
 
                                         <div class="c-project-card__meta">
-                                            <p>9,680 USD<small class="u-block u-text-mute">Budget / Salary</small></p>
-                                            <p>9,680 USD<small class="u-block u-text-mute">Budget / Salary</small></p>
+                                        <h4 class="c-project-card__title"><a class="nav-item" href="{{ path('Anime', { 'id': article.anime.id , 'ep': article.episode }) }}">{{ article.anime.nom }} {{ article.episode }}</a><span class="c-badge c-badge--success c-badge--xsmall u-ml-xsmall">New</span></h4>
+                                            <p class="c-project-card__info">Gourmet | Last Update: 29 Dec 2017</p>
                                         </div>
                                     </div>
                                 </div>
