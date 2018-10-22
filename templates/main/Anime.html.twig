@@ -2,11 +2,10 @@
 {% set message = message %}
 {% set listanime = anime %}
 
+{% block body_home %}
 {% block stylesheets %}
     {{ parent() }}
 {% endblock %}
-
-{% block body_home %}
 <head>
     <style>
         /* Style the tab */
@@ -155,5 +154,4 @@
         evt.currentTarget.className += " active";
     }
 </script>
-<script src="../../js/main.min.js"></script>
 {% endblock %}
