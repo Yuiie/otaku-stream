@@ -33,6 +33,11 @@ class Video
      */
     private $anime;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="videos")
+     */
+    private $user;
+
     public function __construct()
     {
         $this->videos = new ArrayCollection();
@@ -75,6 +80,18 @@ class Video
     public function setAnime(?Anime $anime): self
     {
         $this->anime = $anime;
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
 
         return $this;
     }

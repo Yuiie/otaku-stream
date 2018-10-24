@@ -67,13 +67,17 @@
     </style>
 </head>
 
-<center>
 <h1>{{ article.nom }}<h1>
-<div class="row">
-    <div class="col-lg">
+<div class="row" style="margin-left:2%;margin-right:2%;padding: 10px;background-color: #404040;margin-bottom: 1%;box-shadow: 0 0 1em black;">
+    <div class="col-sm-5" >
+<center>
+
         <img src="{{ article.image }}" style="width: 450px;height:300px;" class="rounded mx-auto d-block" alt="...">
+</center>
+
     </div>
     <div class="col-lg">
+        <div style="margin-right:20%;padding: 10px;background-color: #404040;margin-bottom: 1%;box-shadow: 0 0 1em black;">
         <table>
             <tr style="padding: 0;margin: 0">
                 <td>
@@ -99,14 +103,14 @@
                     
             </tr>
         </table>
-        <div style="font-size: 0.5rem;display: inline">
-            <i class="fa fa-heart fa-3x"></i>
         </div>
-        <a style="padding-left: 6px;">Ajouter à mes favoris</a>
     </div>
 </div>
-<div class="content" style="background-color: #151411">
+<div class="content" style="background-color: #404040; margin-top: 1%;margin-bottom: 1%;box-shadow: 0 0 1em black;">
+<center>
   <p style="font-size:0.47em">{{ article.content }}</p>
+</center>
+
 </div>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Synopsis')">Synopsis</button>
@@ -134,7 +138,6 @@
   <h3>Paris</h3>
   <p>Paris is the capital of France.</p> 
 </div>
-</center>
 
 {% include 'carousel-episode.html.twig' %}
 

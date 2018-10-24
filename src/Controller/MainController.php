@@ -92,7 +92,7 @@ class MainController extends AbstractController
      */
     public function carousel(Request $request)
     {
-        return $this->render('carousel.html.twig');
+        return $this->render('carousel1.html.twig');
     }
 
        /**

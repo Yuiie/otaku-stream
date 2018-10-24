@@ -160,6 +160,8 @@ class AddController extends AbstractController
                 ## Check form
                 if ($request->isMethod('POST') && $form->handleRequest($request)->isValid())
                     {   
+                        $user = $this->getUser();
+                        $video->setUser($user);
                         $em->persist($video);
                         $em->flush();
 
