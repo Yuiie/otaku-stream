@@ -1,14 +1,12 @@
-{% extends 'base.html.twig' %}
+{% extends 'native.html.twig' %}
+{% set message = message %}
 {% set listanime = anime %}
 
-         {% block stylesheets %}
-            <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
-            <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-            <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
-            <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-        {% endblock %}
-
 {% block body_home %}
+
+    {% block stylesheets %}
+            {{ parent() }}
+    {% endblock %}
 
     {# ajouter un formulaire #}
     <div class="container">
@@ -16,14 +14,15 @@
 
         <div class="form-group">
             {{ form_label(form.groupe) }}
-            {{ form_widget(form.groupe, {'attr':{'class':'form-control'}}) }}
+            {{ form_widget(form.groupe, {'attr':{'class':'c-input'}}) }}
             {{ form_errors(form.groupe) }}
         </div>
-        
-        <input type="submit" value="Send" />
+        <br />
+        <input type="submit" value="Send" class="c-input"/>
         {{ form_end(form) }}
     </div>
 
+    <br />
     {# ajouter un flashbag, oublie pas aussi dans le controller #}
     {% for flashMessage in app.session.flashbag.get('notice') %}
         <br />
