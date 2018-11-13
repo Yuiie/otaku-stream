@@ -266,11 +266,16 @@
 
 <!-- Barre de recherche -->
     <div class="c-dropdown dropdown u-mr-medium u-hidden-down@mobile" style="width: 300px">
-        <select class="c-select has-search" id="select2" >
+        <select class="c-select has-search" id="select2" onchange="jumpMenu('parent',this)">
                             {% for article in listanime %}
-                                <option>{{ article.nom }}</option>
+                                <option value="{{ path('index') }}Anime/{{ article.id }}/1">{{ article.nom }}</a></option>
                             {% endfor %}
         </select>
+        <script language="JavaScript" type="text/javascript">
+function jumpMenu(targ,selObj,restore){ 
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+}
+</script>
     </div>
 
                 <div class="c-dropdown dropdown u-mr-medium">
