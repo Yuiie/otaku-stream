@@ -349,6 +349,16 @@ function jumpMenu(targ,selObj,restore){
                 <div class="row">
                     <div style="background-color: white;width: 100%">
                         {# <div class="col-12 col-xl-9 u-p-zero" style="background-color: #524D4C"> #}
+
+                        {# Chargement en cour #}
+
+                        <div id="load" style="display:true;">
+                            <center>
+                                <i class="fa fa-circle-o-notch fa-spin" style="font-size: 2.3em"></i>
+                                Chargement en cours
+                            </center>
+                        </div>
+                        
                         {# affichage des pages #}
                         
                         {% block body_home %}
@@ -362,5 +372,13 @@ function jumpMenu(targ,selObj,restore){
         {% block js %}
             <script src="{{ asset('js/main.min.js') }}"></script>
         {% endblock %}
+
+        <!-- show/hide load bar -->
+        <script>
+            var load = document.getElementById('load');
+            window.onload = function(){
+                load.style.display= "none";
+            }
+        </script>
          {% include 'tchat.html.twig' with {"message": message } %}
 </html>

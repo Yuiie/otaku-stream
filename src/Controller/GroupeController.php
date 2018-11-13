@@ -27,7 +27,7 @@ class GroupeController extends AbstractController
         $db = $this->getDoctrine()->getManager();
 
         ## Search Bar
-        $anime = $em->getRepository('App:Anime')->findBy(
+        $anime = $db->getRepository('App:Anime')->findBy(
             array(),
             array('nom' => 'ASC')
         );
@@ -35,7 +35,7 @@ class GroupeController extends AbstractController
         $group = $db->getRepository('App:Groupe')->findAll();
         $my_group = $db->getRepository('App:GroupeMember')->findByMembre($id);
         return $this->render('groupe/group.html.twig', [
-            'controller_name' => 'MainController', 'listarticle' => $group, 'mygroup' => $my_group
+            'controller_name' => 'MainController', 'listarticle' => $group, 'mygroup' => $my_group, 'anime' => $anime
         ]);
     }
 
@@ -86,7 +86,7 @@ class GroupeController extends AbstractController
  
             }
         }
-        return $this->render('groupe/create-groupe.html.twig', ['form' => $form->createView()]);
+        return $this->render('groupe/create-groupe.html.twig', ['form' => $form->createView(), 'anime' => $anime]);
     }
 
     /**
@@ -126,7 +126,7 @@ class GroupeController extends AbstractController
  
             }
         }
-        return $this->render('groupe/group-member.html.twig', ['form' => $form->createView()]);
+        return $this->render('groupe/group-member.html.twig', ['form' => $form->createView(), 'anime' => $anime]);
     }
 
     /**
@@ -169,6 +169,6 @@ class GroupeController extends AbstractController
             }
                             
         }
-        return $this->render('groupe/group-accept.html.twig', ["req" => $req, "mygroup" => $mygroup]);
+        return $this->render('groupe/group-accept.html.twig', ["req" => $req, "mygroup" => $mygroup, 'anime' => $anime]);
     }
 }
