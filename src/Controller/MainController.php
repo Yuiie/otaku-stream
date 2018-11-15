@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Utils\TchatClass;
+use App\Utils\LevelClass;
 use \DateTime;
 
 use App\Entity\Anime;
@@ -42,7 +43,6 @@ class MainController extends AbstractController
      {
          TchatClass::setObjectManager($objectManager);
      }
-
 
      public function reloadTchat(Request $request)
     {
@@ -122,8 +122,19 @@ class MainController extends AbstractController
      */
     public function index(Request $request)
     {
+        ## Tchat
+
         TchatClass::Tchat($request);
- 
+
+        ## Level
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                LevelClass::addLevel($request);
+                $level = LevelClass::showLevel($request);
+            } else {
+                $level = null;
+            }
+
         $db = $this->getDoctrine()->getManager();
 
         $message = $db->getRepository('App:Tchat')->findAll();
@@ -140,7 +151,8 @@ class MainController extends AbstractController
         );
 
         return $this->render('main/home.html.twig', [
-            'controller_name' => 'MainController', 'listarticle' => $episode, 'message' => $message, 'anime' => $anime
+            'controller_name' => 'MainController', 'listarticle' => $episode,
+            'message' => $message, 'anime' => $anime, 'level' => $level
         ]);
     }
 
@@ -150,6 +162,14 @@ class MainController extends AbstractController
     public function HomeAnime(Request $request)
     {
         TchatClass::Tchat($request);
+
+        ## Level
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                $level = LevelClass::showLevel($request);
+            } else {
+                $level = null;
+            }
  
         $db = $this->getDoctrine()->getManager();
 
@@ -164,7 +184,7 @@ class MainController extends AbstractController
         }
 
         return $this->render('main/All-Anime.html.twig', [
-            'listanime' => $anime, 'message' => $message
+            'listanime' => $anime, 'message' => $message, 'level' => $level
         ]);
     }
 
@@ -174,6 +194,14 @@ class MainController extends AbstractController
     public function Anime($id, $ep, Request $request)
     {
         TchatClass::Tchat($request);
+
+        ## Level
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                $level = LevelClass::showLevel($request);
+            } else {
+                $level = null;
+            }
  
         $db = $this->getDoctrine()->getManager();
         $message = $db->getRepository('App:Tchat')->findAll();
@@ -202,7 +230,7 @@ class MainController extends AbstractController
       ;
         return $this->render('main/Anime.html.twig', array('id' => $id, 'article' => $manga,
                                 'episode' => $episode, 'message' => $message, 'anime' => $anime, 'categorie' => $categorie,
-                            'carousel' => $carousel));
+                            'carousel' => $carousel, 'level' => $level));
     }
 
     /**
@@ -210,10 +238,19 @@ class MainController extends AbstractController
      */
     public function recherche($nom)
     {
+
+        ## Level
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                $level = LevelClass::showLevel($request);
+            } else {
+                $level = null;
+            }
+
         $db = $this->getDoctrine()->getManager();
 
         $episode = $db->getRepository('App:Anime')->recherche($nom);
-        return $this->render('main/recherche.html.twig', ['listarticle' => $episode
+        return $this->render('main/recherche.html.twig', ['listarticle' => $episode, 'level' => $level
         ]);
     }
 

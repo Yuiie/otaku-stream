@@ -26,6 +26,11 @@ class User extends BaseUser
      */
     private $videos;
 
+    /**
+     * @ORM\OneToOne(targetEntity="App\Entity\Level", mappedBy="user", cascade={"persist", "remove"})
+     */
+    private $level;
+
     public function __construct()
     {
         parent::__construct();
@@ -59,6 +64,23 @@ class User extends BaseUser
             if ($video->getUser() === $this) {
                 $video->setUser(null);
             }
+        }
+
+        return $this;
+    }
+
+    public function getLevel(): ?Level
+    {
+        return $this->level;
+    }
+
+    public function setLevel(Level $level): self
+    {
+        $this->level = $level;
+
+        // set the owning side of the relation if necessary
+        if ($this !== $level->getUser()) {
+            $level->setUser($this);
         }
 
         return $this;

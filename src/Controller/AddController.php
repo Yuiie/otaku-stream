@@ -42,6 +42,14 @@ class AddController extends AbstractController
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
 
+        ## Level
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                $level = LevelClass::showLevel($request);
+            } else {
+                $level = null;
+            }
+
         ## Search Bar
         $anime = $em->getRepository('App:Anime')->findBy(
             array(),
@@ -86,7 +94,8 @@ class AddController extends AbstractController
             else {
                 return $this->redirect('http://airi.ovh');
             }
-        return $this->render('add/Add-Anime.html.twig', ['form' => $form->createView(), 'message' => $message, 'categories' => $categories, 'anime' => $anime]);
+        return $this->render('add/Add-Anime.html.twig', ['form' => $form->createView(),
+         'message' => $message, 'categories' => $categories, 'anime' => $anime, 'level' => $level]);
     }
 
       /**
@@ -100,6 +109,14 @@ class AddController extends AbstractController
         ## tchat
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
+
+        ## Level
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                $level = LevelClass::showLevel($request);
+            } else {
+                $level = null;
+            }
 
         ## Search Bar
         $anime = $em->getRepository('App:Anime')->findBy(
@@ -129,7 +146,8 @@ class AddController extends AbstractController
             else {
                 return $this->redirect('http://airi.ovh');
             }
-        return $this->render('add/Add-Episode.html.twig', ['form' => $form->createView(), 'message' => $message, 'anime' => $anime]);
+        return $this->render('add/Add-Episode.html.twig', ['form' => $form->createView(),
+         'message' => $message, 'anime' => $anime, 'level' => $level]);
     }
 
     /**
@@ -142,6 +160,14 @@ class AddController extends AbstractController
         ## Tchat
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
+
+        ## Level
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                $level = LevelClass::showLevel($request);
+            } else {
+                $level = null;
+            }
 
         ## Search Bar
         $anime = $em->getRepository('App:Anime')->findBy(
@@ -173,6 +199,7 @@ class AddController extends AbstractController
             else {
                 return $this->redirect('http://airi.ovh');
             }
-        return $this->render('add/add-video.html.twig', ['form' => $form->createView(), 'message' => $message, 'anime' => $anime]);
+        return $this->render('add/add-video.html.twig', ['form' => $form->createView(),
+         'message' => $message, 'anime' => $anime, 'level' => $level]);
     }
 }

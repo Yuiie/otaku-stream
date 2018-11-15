@@ -30,6 +30,14 @@ class GroupeController extends AbstractController
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
 
+        ## Level
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                $level = LevelClass::showLevel($request);
+            } else {
+                $level = null;
+            }
+
         $db = $this->getDoctrine()->getManager();
 
         ## Search Bar
@@ -41,7 +49,7 @@ class GroupeController extends AbstractController
         $group = $db->getRepository('App:Groupe')->findAll();
         $my_group = $db->getRepository('App:GroupeMember')->findByMembre($id);
         return $this->render('groupe/group.html.twig', ['message' => $message,
-            'controller_name' => 'MainController', 'listarticle' => $group, 'mygroup' => $my_group, 'anime' => $anime
+            'controller_name' => 'MainController', 'listarticle' => $group, 'mygroup' => $my_group, 'anime' => $anime, 'level' => $level
         ]);
     }
 
@@ -57,6 +65,14 @@ class GroupeController extends AbstractController
         ## Tchat
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
+
+        ## Level
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                $level = LevelClass::showLevel($request);
+            } else {
+                $level = null;
+            }
 
         ## Search Bar
         $anime = $em->getRepository('App:Anime')->findBy(
@@ -95,7 +111,8 @@ class GroupeController extends AbstractController
  
             }
         }
-        return $this->render('groupe/create-groupe.html.twig', ['message' => $message, 'form' => $form->createView(), 'anime' => $anime]);
+        return $this->render('groupe/create-groupe.html.twig', ['message' => $message, 'form' => $form->createView(),
+         'anime' => $anime, 'level' => $level]);
     }
 
     /**
@@ -110,6 +127,14 @@ class GroupeController extends AbstractController
         ## Tchat
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
+
+        ## Level
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                $level = LevelClass::showLevel($request);
+            } else {
+                $level = null;
+            }
 
         ## Search Bar
         $anime = $em->getRepository('App:Anime')->findBy(
@@ -138,7 +163,8 @@ class GroupeController extends AbstractController
  
             }
         }
-        return $this->render('groupe/group-member.html.twig', ['message' => $message, 'form' => $form->createView(), 'anime' => $anime]);
+        return $this->render('groupe/group-member.html.twig', ['message' => $message, 'form' => $form->createView(),
+         'anime' => $anime, 'level' => $level]);
     }
 
     /**
@@ -155,6 +181,14 @@ class GroupeController extends AbstractController
         ## Tchat
         TchatClass::Tchat($request);
         $message = $em->getRepository('App:Tchat')->findAll();
+
+        ## Level
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                $level = LevelClass::showLevel($request);
+            } else {
+                $level = null;
+            }
 
         ## Search Bar
         $anime = $em->getRepository('App:Anime')->findBy(
@@ -184,6 +218,7 @@ class GroupeController extends AbstractController
             }
                             
         }
-        return $this->render('groupe/group-accept.html.twig', ['message' => $message, "req" => $req, "mygroup" => $mygroup, 'anime' => $anime]);
+        return $this->render('groupe/group-accept.html.twig', ['message' => $message, "req" => $req,
+         "mygroup" => $mygroup, 'anime' => $anime, 'level' => $level]);
     }
 }
