@@ -26,6 +26,11 @@ class Tchat
      */
     private $message;
 
+    /**
+     * @ORM\Column(type="integer", nullable=true)
+     */
+    private $dest;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -51,6 +56,18 @@ class Tchat
     public function setMessage(string $message): self
     {
         $this->message = $message;
+
+        return $this;
+    }
+
+    public function getDest(): ?int
+    {
+        return $this->dest;
+    }
+
+    public function setDest(?int $dest): self
+    {
+        $this->dest = $dest;
 
         return $this;
     }
