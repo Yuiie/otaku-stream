@@ -129,8 +129,9 @@ class MainController extends AbstractController
         ## Level
         if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
             {
-                LevelClass::addLevel($request);
-                $level = LevelClass::showLevel($request);
+                $user = $this->getUser()->getId();
+                LevelClass::addLevel($request, $user, 10);
+                $level = LevelClass::showLevel($request, $user);
             } else {
                 $level = null;
             }
@@ -151,7 +152,7 @@ class MainController extends AbstractController
         );
 
         return $this->render('main/home.html.twig', [
-            'controller_name' => 'MainController', 'listarticle' => $episode,
+            'controller_name' => 'MainController', 'listarticle' => $episode, 'random' => $anime,
             'message' => $message, 'anime' => $anime, 'level' => $level
         ]);
     }
@@ -198,7 +199,8 @@ class MainController extends AbstractController
         ## Level
         if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
             {
-                $level = LevelClass::showLevel($request);
+                $user = $this->getUser()->getId();
+                $level = LevelClass::showLevel($request, $user);
             } else {
                 $level = null;
             }

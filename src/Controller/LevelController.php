@@ -15,6 +15,15 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class LevelController extends AbstractController
 {
+
+    /**
+     * @Route("/game", name="game")
+     */
+    public function game(Request $request)
+    {
+        return $this->render('level/index.html.twig', []);
+    }
+
     /**
      * @Route("/level", name="level")
      */
