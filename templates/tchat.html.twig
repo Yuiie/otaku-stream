@@ -33,22 +33,24 @@
 
                 {% for messages in message %}
 
-                    {% if messages.nom == "moi" %}
-                    <div class="c-chat-dialogue__message c-chat-dialogue__message--self">
-                        <div class="c-chat-dialogue__message-content">
-                            {{ messages.message }}
-                        </div>
-                    </div>
-                    {% else %}
-                    <div class="c-chat-dialogue__message">
-                        <div class="c-chat-dialogue__message-content">
-                            {{ messages.message }}
-                        </div>
-                    </div>
+                    {% if message.dest == 0 %}
+                        {% if messages.nom == "moi" %}
+                            <div class="c-chat-dialogue__message c-chat-dialogue__message--self">
+                                <div class="c-chat-dialogue__message-content">
+                                    {{ messages.message }}
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="c-chat-dialogue__message">
+                                <div class="c-chat-dialogue__message-content">
+                                    {{ messages.message }}
+                                </div>
+                            </div>
+                        {% endif %}
                     {% endif %}
 
                 {% endfor %}
-                 <div id="local">
+    <div id="local">
     </div> 
                 </div>
 <!-- Form -->

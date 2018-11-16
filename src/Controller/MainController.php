@@ -95,7 +95,7 @@ class MainController extends AbstractController
         return $this->render('carousel1.html.twig');
     }
 
-       /**
+    /**
      * @Route("/dbtchat", name="db tchat")
      */
     public function dbTchat(Request $request)
@@ -108,6 +108,7 @@ class MainController extends AbstractController
         
         $tchat->setNom($user);
         $tchat->setMessage($msg);
+        $tchat->setDest(0);
         $db->persist($tchat);
         $db->flush();
 
