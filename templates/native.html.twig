@@ -80,7 +80,6 @@
                         </a>
                         <ul class="c-sidebar__submenu collapse" id="social">
                             <li><a class="c-sidebar__link" href="#">Feed</a></li>
-                            <li><a class="c-sidebar__link" href="#">Amis</a></li>
                             <li class="c-sidebar__item">
                                 <a class="c-sidebar__link" href="#">
                                     <i class="fa fa-user-plus u-mr-xsmall"></i>Amis
@@ -223,7 +222,7 @@
                 </button>
 
 
-                <h2 class="c-navbar__title u-mr-auto" style="">Projects</h2>
+                <h2 class="c-navbar__title u-mr-auto" style=""></h2>
 
 <!-- Barre de recherche -->
     <div class="c-dropdown dropdown u-mr-medium u-hidden-down@mobile" style="width: 300px">
@@ -233,10 +232,10 @@
                             {% endfor %}
         </select>
         <script language="JavaScript" type="text/javascript">
-function jumpMenu(targ,selObj,restore){ 
-  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
-}
-</script>
+                function jumpMenu(targ,selObj,restore){ 
+                    eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+                }
+        </script>
     </div>
 
                 <div class="c-dropdown dropdown u-mr-medium">
@@ -300,9 +299,16 @@ function jumpMenu(targ,selObj,restore){
                     </a>
 
                     <div class="c-dropdown__menu dropdown-menu dropdown-menu-right" aria-labelledby="dropdwonMenuAvatar">
+                        {% if level is defined and level is not null %}
                         <a class="c-dropdown__item dropdown-item" href="{{ path('login') }}">Edit Profile</a>
-                        <a class="c-dropdown__item dropdown-item" href="#">View Activity</a>
-                        <a class="c-dropdown__item dropdown-item" href="#">Logout</a>
+                            <a class="c-dropdown__item dropdown-item" href="#">View Activity</a>
+                            <a class="c-dropdown__item dropdown-item" href="{{ path('logout') }}">Logout</a>
+                        {% endif %}
+                        {% if level is not defined or level is null %}
+                            <a class="c-dropdown__item dropdown-item" href="{{ path('login') }}">Connection</a>
+                            <a class="c-dropdown__item dropdown-item" href="{{ path('register') }}">Insciption</a>
+                            <a class="c-dropdown__item dropdown-item" href="#">Mdp oublié</a>
+                        {% endif %}
                     </div>
             </header>
             

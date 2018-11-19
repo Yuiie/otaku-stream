@@ -11,6 +11,9 @@
     <style>
             .box-header{
             }
+            .c-project-card__meta {
+                display: inline-block;
+            }
     </style>
     <div class="box-header" style="min-height: 300px;background-image: url('{{ random([asset('img/background/header-home.png'), asset('img/background/header-home1.png'), asset('img/background/header-home2.png')]) }}');background-size: cover;background-repeat:no-repeat;">
     </div>
@@ -20,7 +23,6 @@
             {% include 'carousel.html.twig' %}
         </center>
     </div>
-
     <div class="row u-m-small" style="margin-left:2%;margin-right:2%;padding: 10px;background-color: #404040;margin-bottom: 1%;box-shadow: 0 0 1em black;">
         <div style="width:100%;">
             <font color="white" style="float:left" size="6">Random</font>
@@ -40,8 +42,7 @@
 
                         <div class="c-project-card__meta">
                             <h4 class="c-project-card__title"><a class="nav-item" href="{{ path('Anime', { 'id': randoms[rand].id , 'ep': '1' }) }}">{{ randoms[rand].nom }}</a><span class="c-badge c-badge--success c-badge--xsmall u-ml-xsmall">New</span></h4>
-                            <br />
-                            <p class="c-project-card__info">Airi | Last Update: 29 Dec 2017</p>
+                            <p class="c-project-card__info" style="float:right">Airi | Last Update: 29 Dec 2017</p>
                         </div>
                     </div>
                 </div>

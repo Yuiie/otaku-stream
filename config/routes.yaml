@@ -22,6 +22,12 @@ Article:
 login:
     path: /profile/
 
+register:
+    path: /register/
+
+logout:
+    path: /logout
+
 recherche:
     path: /recherche/
     defaults:
