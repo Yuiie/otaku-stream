@@ -1,5 +1,5 @@
 {% block eu_cookie_message %}
-    <div id="cookie-law-info-bar" style="width:100%; background: rgba(51, 221, 227, 0.75); position: fixed; bottom: 0px; left: 0;">
+    <div id="cookie-law-info-bar" style="width:100%; background: black; position: fixed; bottom: 0px; left: 0;z-index:99999">
         <p style="text-align:center; padding: 10px;">
             {{ 'cookie.message'|trans({}, 'EuCookieLawBundle') }}
             <a href="#" id="cookie-law-close-button">{{ 'cookie.message.accept'|trans({}, 'EuCookieLawBundle') }}</a>
