@@ -232,7 +232,7 @@ class MainController extends AbstractController
       ;
         return $this->render('main/Anime.html.twig', array('id' => $id, 'article' => $manga,
                                 'episode' => $episode, 'message' => $message, 'anime' => $anime, 'categorie' => $categorie,
-                            'carousel' => $carousel, 'level' => $level));
+                            'carousel' => $carousel, 'level' => $level, 'ep' => $ep));
     }
 
     /**

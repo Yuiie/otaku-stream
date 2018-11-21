@@ -20,27 +20,6 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class MessengerController extends AbstractController
 {
-    public function Cookies($path)
-    {
-
-        if (isset($_COOKIE['historique'])){
-            $historique = unserialize($_COOKIE['historique']);
-            
-            $i = 0;
-            $m = "";
-            foreach ($historique as $m)
-            { 
-                $i++;
-            }
-            $historique[$i] = $path;
-            setcookie('historique', serialize($historique), time() + 365*24*3600, null, null, false, true);
-        } else {
-            $historique = array();
-            setcookie('historique', serialize($historique), time() + 365*24*3600, null, null, false, true);
-        }
-        return new Response("");
-    }
-
 
     /**
      * @Route("/messenger", name="messenger")
@@ -90,11 +69,8 @@ class MessengerController extends AbstractController
                         $em->flush();
                 
                 }
-              //  if (isset($_COOKIE['historique'])){
-                //$historique = unserialize($_COOKIE['historique']);
-               // print_r($historique);
-               // }
+
         return $this->render('messenger/index.html.twig', ['message' => $message, 'level' => $level, 'anime' => $anime, 'messages' => $messages
-    ]);
+        ]);
     }
 }

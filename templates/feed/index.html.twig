@@ -1,0 +1,29 @@
+{% extends 'native.html.twig' %}
+{% set message = message %}
+{% set listanime = anime %}
+
+
+{% block body_home %}
+
+    {% block stylesheets %}
+            {{ parent() }}
+    {% endblock %}
+    <style>
+            .box-header{
+            }
+            .c-project-card__meta {
+                display: inline-block;
+            }
+    </style>
+            <div class="col-sm-6 col-md-8">
+                <div class="c-project-card u-mb-medium">
+                    <div class="c-project-card__content">
+                        <div class="c-project-card__meta">
+                            <p>ttttttttttttttttttt</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    
+{% endblock %}
+

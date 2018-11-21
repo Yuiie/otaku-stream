@@ -93,9 +93,11 @@
                             </span>
 
                             <div class="c-btn-group u-mr-medium u-hidden-down@tablet">
-                                <a class="c-btn c-btn--secondary">
+                            <div class="tab">
+                                <a class="c-btn c-btn--secondary" onclick="openCity(event, 'new-message')">
                                     <i class="u-opacity-heavy fa fa-paper-plane-o"></i>
                                 </a>
+                            </div>
                                 <a class="c-btn c-btn--secondary">
                                     <i class="u-opacity-heavy fa fa-trash-o"></i>
                                 </a>
@@ -179,6 +181,26 @@
                                 </div>
                             {% endfor %}
 
+
+
+                            <!-- New Message -->
+                            <div id="new-message" class="tabcontent">
+                                    <form method="post">
+                                   
+                                        <div class="c-field u-mb-small">
+                                            <label class="c-field__label" for="input1">Destinataire:</label> 
+                                            <input class="c-input" name="destinataire"><br />
+                                        </div>
+                                        <div class="c-field has-addon-left">
+                                            <button class="c-field__addon"><i class="fa fa-plus"></i></button> 
+                                            <input class="c-input" name="message" type="text" placeholder="Clark">
+                                        </div>
+                                    </form>
+                                </div>
+                                <!-- Fin New Message -->
+
+
+</div>
                         </div>
                     </div>
 

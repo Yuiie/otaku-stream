@@ -81,7 +81,9 @@
             <tr style="padding: 0;margin: 0">
                 <td>
                     <p>Titre :</p>
-                    <a>{{ article.nom }}</a>
+                    <a>{{ article.nom }}
+                     | {{ path(app.request.attributes.get('_route'), 
+        app.request.attributes.get('_route_params')) }}</a>
                 </td>
             </tr>
             <tr>
@@ -138,6 +140,7 @@
   <p>Paris is the capital of France.</p> 
 </div>
 
+{% include 'historique/stream.html.twig' %}
 {% include 'carousel-episode.html.twig' %}
 
 {# Tab #}
