@@ -124,7 +124,6 @@ class MainController extends AbstractController
     public function index(Request $request)
     {
         ## Tchat
-
         TchatClass::Tchat($request);
 
         ## Level
@@ -151,7 +150,6 @@ class MainController extends AbstractController
             $request->query->getInt('page', 1),
             8
         );
-
         return $this->render('main/home.html.twig', [
             'controller_name' => 'MainController', 'listarticle' => $episode, 'random' => $anime,
             'message' => $message, 'anime' => $anime, 'level' => $level

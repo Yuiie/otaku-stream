@@ -22,8 +22,6 @@ class GroupeController extends AbstractController
     {
 
         $bdd = $this->container->get('security.token_storage')->getToken()->getUser();
-        $id = $bdd->getId();
-
         $em = $this->getDoctrine()->getManager();
 
         ## Tchat
