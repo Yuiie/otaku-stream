@@ -46,7 +46,8 @@ class AddController extends AbstractController
         ## Level
         if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
             {
-                $level = LevelClass::showLevel($request);
+                $user = $this->getUser()->getId();
+                $level = LevelClass::showLevel($request, $user);
             } else {
                 $level = null;
             }
@@ -114,7 +115,8 @@ class AddController extends AbstractController
         ## Level
         if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
             {
-                $level = LevelClass::showLevel($request);
+                $user = $this->getUser()->getId();
+                $level = LevelClass::showLevel($request, $user);
             } else {
                 $level = null;
             }
@@ -165,7 +167,8 @@ class AddController extends AbstractController
         ## Level
         if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
             {
-                $level = LevelClass::showLevel($request);
+                $user = $this->getUser()->getId();
+                $level = LevelClass::showLevel($request, $user);
             } else {
                 $level = null;
             }
