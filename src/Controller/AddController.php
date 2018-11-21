@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Utils\TchatClass;
+use App\Utils\LevelClass;
 
 use App\Entity\Anime;
 use App\Entity\Episode;
