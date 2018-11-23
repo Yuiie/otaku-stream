@@ -114,13 +114,8 @@
 
 </div>
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'Synopsis')">Synopsis</button>
   <button class="tablinks" onclick="openCity(event, 'Video')">Video</button>
   <button class="tablinks" onclick="openCity(event, 'Commentaire')">Commentaire</button>
-</div>
-
-<div id="Synopsis" class="tabcontent">
-  <p style="color:black;font-size:0.36em">{{ article.content }}</p>
 </div>
 
 <div id="Video" class="tabcontent">
@@ -135,14 +130,21 @@
     {% endfor %}
 </div>
 
-<div id="Commentaire" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p> 
-</div>
+<div id="Commentaire" class="tabcontent" style="background-color:#EEEDE8">
+                                    <form method="post">
+                                   
+                                        <div class="c-field u-mb-small">
+                                            <label class="c-field__label" for="input1">Destinataire:</label> 
+                                            <input class="c-input" name="destinataire">
+                                        </div>
+                                           
+                                            <input class="c-form" name="message" type="text" placeholder="Clark">
+                                    </form><br />
+</div><br />
 
 {% include 'historique/stream.html.twig' %}
 {% include 'carousel-episode.html.twig' %}
-
+<br />
 {# Tab #}
 <script>
     function openCity(evt, cityName) {

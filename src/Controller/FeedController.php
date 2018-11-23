@@ -16,6 +16,44 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class FeedController extends AbstractController
 {
+    public function recursiveResponse($parent, $array, $myarray)
+    {
+        foreach ($array as $a)
+            {
+                if ($a->parent == $parent)
+                {
+                    $i = 0;
+                    foreach ($myarray as $count)
+                        { 
+                            $i++;
+                        }
+                    $myarray[$i] = $a;
+                    $myarray = $this->recursiveResponse($a->id, $array, $myarray);
+                }
+            }
+            return ($myarray);
+    }
+
+    public function showResponse($array)
+    {
+        $myarray = array();
+        $i = 0;
+        foreach ($array as $com)
+            {
+                if ($com->parent == 0)
+                {
+                    $i = 0;
+                    foreach ($myarray as $count)
+                        { 
+                            $i++;
+                        }
+                    $myarray[$i] = $com;
+                    $myarray = $this->recursiveResponse($com->id, $array, $myarray);
+                }
+            }
+            return ($myarray);
+    }
+
     /**
      * @Route("/feed", name="feed")
      */
@@ -42,9 +80,11 @@ class FeedController extends AbstractController
             array('nom' => 'ASC')
         );
 
+        $reqFeed = $em->getRepository('App:Commentaire')->findAll();
+        $arrayFeed = $this->showResponse($reqFeed);
 
         return $this->render('feed/index.html.twig', [
-            'message' => $message, 'anime' => $anime, 'level' => $level
+            'message' => $message, 'anime' => $anime, 'level' => $level, 'arrayFeed' => $arrayFeed
         ]);
     }
 }
