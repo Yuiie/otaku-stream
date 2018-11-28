@@ -18,6 +18,7 @@ class UploadImageType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('nom', TextType::class)
             ->add('image', FileType::class, array('label' => 'Brochure (PDF file)'))
         ;
     }

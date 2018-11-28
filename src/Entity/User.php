@@ -31,10 +31,17 @@ class User extends BaseUser
      */
     private $level;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\Images", mappedBy="pseudo")
+     */
+    private $image;
+
     public function __construct()
     {
         parent::__construct();
         $this->videos = new ArrayCollection();
+        $this->images = new ArrayCollection();
+        $this->image = new ArrayCollection();
         // your own logic
     }
 
@@ -81,6 +88,37 @@ class User extends BaseUser
         // set the owning side of the relation if necessary
         if ($this !== $level->getUser()) {
             $level->setUser($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Images[]
+     */
+    public function getImage(): Collection
+    {
+        return $this->image;
+    }
+
+    public function addImage(Images $image): self
+    {
+        if (!$this->image->contains($image)) {
+            $this->image[] = $image;
+            $image->setPseudo($this);
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Images $image): self
+    {
+        if ($this->image->contains($image)) {
+            $this->image->removeElement($image);
+            // set the owning side to null (unless already changed)
+            if ($image->getPseudo() === $this) {
+                $image->setPseudo(null);
+            }
         }
 
         return $this;

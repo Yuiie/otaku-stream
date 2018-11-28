@@ -28,10 +28,24 @@ class Images
     private $image;
 
     /**
-     * @ORM\OneToOne(targetEntity="App\Entity\User", inversedBy="all_images", cascade={"persist", "remove"})
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\ManyToOne(targetEntity="App\Entity\User", inversedBy="image")
      */
     private $pseudo;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $nom;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date;
+
+    public function __construct()
+    {
+        $this->pseudo = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -55,10 +69,35 @@ class Images
         return $this->pseudo;
     }
 
-    public function setPseudo(User $pseudo): self
+    public function setPseudo(?User $pseudo): self
     {
         $this->pseudo = $pseudo;
 
         return $this;
     }
+
+    public function getNom(): ?string
+    {
+        return $this->nom;
+    }
+
+    public function setNom(string $nom): self
+    {
+        $this->nom = $nom;
+
+        return $this;
+    }
+
+    public function getDate(): ?\DateTimeInterface
+    {
+        return $this->date;
+    }
+
+    public function setDate(\DateTimeInterface $date): self
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
 }

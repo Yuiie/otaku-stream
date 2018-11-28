@@ -67,10 +67,57 @@ class UserController extends AbstractController
             }
     }
 
+
     /**
-     * @Route("/profile/change", name="change-profile")
+     * @Route("/profile/gallery", name="gallery")
      */
-    public function profileChange(Request $request)
+    public function showImage(Request $request)
+    {
+        if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+            {
+                
+                $user = $this->container->get('security.token_storage')->getToken()->getUser();
+                $db = $this->getDoctrine()->getManager();
+
+                ## Tchat
+                TchatClass::Tchat($request);
+                $message = $db->getRepository('App:Tchat')->findAll();
+
+                ## Level
+                if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
+                    {
+                        $userid = $this->getUser()->getId();
+                        $level = LevelClass::showLevel($request, $userid);
+                    } else {
+                        $level = null;
+                    }
+
+                ## Search Bar
+                $anime = $db->getRepository('App:Anime')->findBy(
+                    array(),
+                    array('nom' => 'ASC')
+                );
+                
+                ## show image
+                $image = $user->getImage();
+                
+                return $this->render('user/show-image.html.twig', [
+                    'message' => $message,
+                    'anime' => $anime,
+                    'level' => $level,
+                    'image' => $image
+                    ]);
+            }
+            else {
+                $url = "airi.ovh";
+                return $this->redirect($url);
+            }
+    }
+
+    /**
+     * @Route("/profile/add-image", name="profile-add-image")
+     */
+    public function addImage(Request $request)
     {
         if ( $this->container->get( 'security.authorization_checker' )->isGranted( 'IS_AUTHENTICATED_FULLY' ) )
             {
@@ -118,12 +165,13 @@ class UserController extends AbstractController
         
                     $image->setImage($fileName);
                     $image->setPseudo($user);
+                    $image->setDate(new \datetime('now'));
                     $db->persist($image);
                     $db->flush();
 
                     return $this->redirect($this->generateUrl('index'));
                 }
-                    ##
+                ##
                 
                 return $this->render('user/image.html.twig', [
                     'message' => $message,
