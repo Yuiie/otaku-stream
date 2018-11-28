@@ -8,6 +8,7 @@ use App\Entity\GroupeMember;
 use App\Form\GroupMemberType;
 use App\Utils\TchatClass;
 use App\Utils\LevelClass;
+use App\Entity\Commentaire;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -52,6 +53,31 @@ class FeedController extends AbstractController
                 }
             }
             return ($myarray);
+    }
+
+    /**
+     * @Route("/dbfeed", name="db feed")
+     */
+    public function dbFeed(Request $request)
+    {
+        $user = $this->getUser()->getUsername();
+        $msg = $request->request->get('msg');
+        $parent = $request->request->get('parent');
+        
+        $feed = new Commentaire();
+        $db = $this->getDoctrine()->getManager();
+        
+        $feed->setPseudo($user);
+        $feed->setMessage($msg);
+        $feed->setUrl("e");
+        $feed->setParent($parent);
+        $feed->setDate(new \datetime('now'));
+        $db->persist($feed);
+        $db->flush();
+
+        $resp = new Response("Message bien envoyé");
+        return $resp;
+        
     }
 
     /**
