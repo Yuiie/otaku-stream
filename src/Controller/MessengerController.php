@@ -26,7 +26,7 @@ class MessengerController extends AbstractController
      */
     public function index(Request $request)
     {
-
+        //test
         $bdd = $this->container->get('security.token_storage')->getToken()->getUser();
         $em = $this->getDoctrine()->getManager();
 
