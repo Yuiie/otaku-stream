@@ -106,7 +106,7 @@ class FeedController extends AbstractController
             array('nom' => 'ASC')
         );
 
-        $reqFeed = $em->getRepository('App:Commentaire')->findAll();
+        $reqFeed = $em->getRepository('App:Commentaire')->findBy(array(), array('id' => 'DESC'));
         $arrayFeed = $this->showResponse($reqFeed);
 
         return $this->render('feed/index.html.twig', [
