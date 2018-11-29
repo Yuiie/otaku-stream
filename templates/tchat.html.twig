@@ -33,7 +33,6 @@
 
                 {% for messages in message %}
 
-                    {% if message.dest == 0 %}
                         {% if messages.nom == "moi" %}
                             <div class="c-chat-dialogue__message c-chat-dialogue__message--self">
                                 <div class="c-chat-dialogue__message-content">
@@ -47,7 +46,6 @@
                                 </div>
                             </div>
                         {% endif %}
-                    {% endif %}
 
                 {% endfor %}
     <div id="local">

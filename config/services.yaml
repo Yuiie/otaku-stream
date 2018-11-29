@@ -5,7 +5,9 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: 'en'
-    brochures_directory: '%kernel.project_dir%/public/uploads'
+    brochures_directory: '%kernel.project_dir%/public/uploads/img/anime'
+    img_user: '%kernel.project_dir%/public/uploads/img/gallery'
+    img_feed: '%kernel.project_dir%/public/uploads/img/feed'
 
 services:
 
